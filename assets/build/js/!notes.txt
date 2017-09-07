@@ -1,0 +1,14 @@
+add other needed js files we've used on other projects:
+
+- iframe-responsive.js
+- image-fix.js
+- max-height.js
+- section-jump.js
+
+
+Add other libraries as needed:
+
+-Headroom.js
+-onscreen.js
+-sticky-kit.js
+-swiper.jquery.min.js
