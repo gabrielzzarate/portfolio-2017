@@ -2,11 +2,32 @@
 // Typography
 // //////////////////////////
 
+// 1. Import Fonts
+
+// Import Signika
+
+@font-face {
+	font-family: 'Relevant'; // regular
+	src:	url('../fonts/Relevant-Normal.eot') format('embedded-opentype'),
+			url('../fonts/Relevant-Normal.ttf') format('truetype'),
+			url('../fonts/Relevant-Normal.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Relevant'; // bold
+	src:	url('../fonts/Relevant-Bold.eot') format('embedded-opentype'),
+			url('../fonts/Relevant-Bold.ttf') format('truetype'),
+			url('../fonts/Relevant-Bold.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+}
 
 // 1. Font Variables
 
-$body-font: 'Gotham A', 'Gotham B', Helvetica, Arial, sans-serif;
-$heading-font: 'Forza A', 'Forza B', Helvetica, Arial, sans-serif;
+$body-font: 'Relevant', Helvetica, Arial, sans-serif;
+$heading-font: 'Relevant', Helvetica, Arial, sans-serif;
 
 
 // 2. Default Typography
