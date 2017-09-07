@@ -1,0 +1,34 @@
+///////////////////////////////////////////
+// Front End SASS Framework
+///////////////////////////////////////////
+
+
+// 1. Resets & 3rd Party
+@import "partials/libraries/normalize";
+@import "partials/libraries/reset";
+
+// 2. Structure, Variables, & Sitewide Styling
+@import "partials/structure/variables";
+@import "partials/structure/mixins";
+@import "partials/structure/animations";
+@import "partials/structure/typography";
+@import "partials/structure/icons";
+@import "partials/structure/structure";
+@import "partials/structure/grid";
+@import "partials/structure/form-styles";
+
+// 3. Global Elements
+@import "partials/global/header";
+@import "partials/global/footer";
+@import "partials/global/sidebars";
+@import "partials/global/top-level-page";
+@import "partials/global/secondary-page";
+@import "partials/global/modal-window";
+
+
+// 4. Modules
+
+// 5. Page Templates
+
+
+
