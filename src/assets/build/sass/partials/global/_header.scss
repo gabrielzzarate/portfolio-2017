@@ -1,0 +1,15 @@
+
+header {
+	position: absolute;
+	left: 45px;
+	top: 45px;
+
+	a {
+		color: $black;
+		text-transform: uppercase;
+
+		&:first-of-type {
+			padding-right: 15px;
+		}
+	}
+}
