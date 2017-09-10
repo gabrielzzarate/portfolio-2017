@@ -1,11 +1,13 @@
 
+.flex-col {
+	position: relative;
+}
+
 .photo-card {
 	position: absolute;
     display: block;
     cursor: pointer;
     background: transparent;
-
-
 
 	.photo-card-container {
 		position: relative;

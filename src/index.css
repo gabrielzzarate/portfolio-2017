@@ -1,5 +1,18 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+
+@font-face {
+	font-family: 'Relevant'; // regular
+ 	src:	url('./assets/production/fonts/Relevant-Normal.eot') format('embedded-opentype'),
+ 			url('./assets/production/fonts/Relevant-Normal.ttf') format('truetype'),
+			url('./assets/production/fonts/Relevant-Normal.woff') format('woff');
+ 	font-weight: 400;
+ 	font-style: normal;
+}
+
+@font-face {
+ 	font-family: 'Relevant'; // bold
+ 	src:	url('./assets/production/fonts/Relevant-Bold.eot') format('embedded-opentype'),
+ 			url('./assets/production/fonts/Relevant-Bold.ttf') format('truetype'),
+ 			url('./assets/production/fonts/Relevant-Bold.woff') format('woff');
+ 	font-weight: 800;
+ 	font-style: normal;
 }

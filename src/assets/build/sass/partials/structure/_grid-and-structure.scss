@@ -38,6 +38,14 @@ body, html {
 	}
 }
 
+body{
+ height: 100vh;
+}
+
+#root {
+	height: 100vh;
+}
+
 // google tracking iframe display none
 iframe[name=google_conversion_frame] {
 	display: none;

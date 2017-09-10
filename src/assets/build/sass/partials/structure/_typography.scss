@@ -8,18 +8,18 @@
 
 @font-face {
 	font-family: 'Relevant'; // regular
-	src:	url('../fonts/Relevant-Normal.eot') format('embedded-opentype'),
-			url('../fonts/Relevant-Normal.ttf') format('truetype'),
-			url('../fonts/Relevant-Normal.woff') format('woff');
+	src:	url('../../production/fonts/Relevant-Normal.eot') format('embedded-opentype'),
+			url('../../production/fonts/Relevant-Normal.TTF') format('truetype'),
+			url('../../production/fonts/Relevant-Normal.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Relevant'; // bold
-	src:	url('../fonts/Relevant-Bold.eot') format('embedded-opentype'),
-			url('../fonts/Relevant-Bold.ttf') format('truetype'),
-			url('../fonts/Relevant-Bold.woff') format('woff');
+	src:	url('../../production/fonts/Relevant-Bold.eot') format('embedded-opentype'),
+			url('../../production/fonts/Relevant-Bold.TTF') format('truetype'),
+			url('../../production/fonts/Relevant-Bold.woff') format('woff');
 	font-weight: 800;
 	font-style: normal;
 }

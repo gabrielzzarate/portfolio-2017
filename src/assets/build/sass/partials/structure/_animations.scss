@@ -127,3 +127,48 @@
   0%   { opacity: 1;  height: 136px; }
   100%   { opacity: 0;  height: 0; }
 }
+
+
+
+
+
+.home-background {
+    z-index: -1;
+}
+
+.background-piece {
+  -webkit-transform-origin: 100% 100% 0;
+  transform-origin: 100% 100% 0;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+}
+.background-piece-left-main,
+.background-piece-left-color {
+  width: 25%
+}
+.background-piece-right-main,
+.background-piece-right-color {
+  left: 25%;
+  width: 75%
+}
+.background-piece-left-color,
+.background-piece-right-color {
+  background: #e8eaef
+}
+.background-piece-left-main,
+.background-piece-right-main {
+  background: #fff
+}
+
+@media (max-width: 768px) {
+  .background-piece-left-main,
+  .background-piece-left-color {
+    width: 0%
+  }
+
+  .background-piece-right-main,
+  .background-piece-right-color {
+    left: 0;
+    width: 100%
+  }
+}
