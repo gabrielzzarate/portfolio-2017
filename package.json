@@ -10,8 +10,12 @@
   "author": "Gabriel Zarate",
   "license": "ISC",
   "dependencies": {
+    "gsap": "^1.20.2",
+    "gulp-concat": "^2.6.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2",
+    "react-transition-group": "^1.2.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.13",

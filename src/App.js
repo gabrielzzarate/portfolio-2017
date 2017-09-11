@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 //import './assets/production/css/portfolio-main.min.css';
 
+
 // child components
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
@@ -20,8 +21,19 @@ class App extends Component {
           </main>
 
           <header>
-            <Link to='/'>Home</Link>
-            <Link to='/about'>About</Link>
+            <Link className="nav-link" to='/'>
+              <span>H</span>
+              <span>o</span>
+              <span>m</span>
+              <span>e</span>
+            </Link>
+            <Link className="nav-link" to='/about'>
+              <span>A</span>
+              <span>b</span>
+              <span>o</span>
+              <span>u</span>
+              <span>t</span>
+            </Link>
           </header>
         </div>
       </Router>

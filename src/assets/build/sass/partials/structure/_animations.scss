@@ -133,14 +133,15 @@
 
 
 .home-background {
-    z-index: -1;
+  z-index: -1;
 }
 
-.background-piece {
+.home-background-piece {
   -webkit-transform-origin: 100% 100% 0;
   transform-origin: 100% 100% 0;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
+  //transform: matrix(1, 0, 0, 1, 0, 0);
 }
 .background-piece-left-main,
 .background-piece-left-color {
@@ -171,4 +172,75 @@
     left: 0;
     width: 100%
   }
+}
+
+
+/// Navigation Links
+
+.nav-link span {
+    -webkit-transition: color .2s ease-out;
+    transition: color .2s ease-out
+}
+.nav-link span:nth-of-type(1) {
+    -webkit-transition-delay: .04s;
+    transition-delay: .04s
+}
+.nav-link span:nth-of-type(2) {
+    -webkit-transition-delay: .08s;
+    transition-delay: .08s
+}
+.nav-link span:nth-of-type(3) {
+    -webkit-transition-delay: .12s;
+    transition-delay: .12s
+}
+.nav-link span:nth-of-type(4) {
+    -webkit-transition-delay: .16s;
+    transition-delay: .16s
+}
+.nav-link span:nth-of-type(5) {
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s
+}
+.nav-link span:nth-of-type(6) {
+    -webkit-transition-delay: .24s;
+    transition-delay: .24s
+}
+.nav-link span:nth-of-type(7) {
+    -webkit-transition-delay: .28s;
+    transition-delay: .28s
+}
+.nav-link span:nth-of-type(8) {
+    -webkit-transition-delay: .32s;
+    transition-delay: .32s
+}
+.nav-link span:nth-of-type(9) {
+    -webkit-transition-delay: .36s;
+    transition-delay: .36s
+}
+.nav-link span:nth-of-type(10) {
+    -webkit-transition-delay: .4s;
+    transition-delay: .4s
+}
+.nav-link span:nth-of-type(11) {
+    -webkit-transition-delay: .44s;
+    transition-delay: .44s
+}
+.nav-link span:nth-of-type(12) {
+    -webkit-transition-delay: .48s;
+    transition-delay: .48s
+}
+.nav-link span:nth-of-type(13) {
+    -webkit-transition-delay: .52s;
+    transition-delay: .52s
+}
+.nav-link span:nth-of-type(14) {
+    -webkit-transition-delay: .56s;
+    transition-delay: .56s
+}
+.nav-link span:nth-of-type(15) {
+    -webkit-transition-delay: .6s;
+    transition-delay: .6s
+}
+.nav-link:hover span {
+    color: #787878
 }

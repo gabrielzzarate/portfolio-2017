@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
-import Card from './Card';
+import CardContainer from './CardContainer';
+
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      visible: true,
+      cards: [1, 2, 3],
+    }
+  }
   render() {
+    const cards = this.state.cards;
+    let renderCards;
     return (
       <div className="home view">
 
@@ -10,7 +21,14 @@ class Home extends Component {
           <div className="container center-text">
             <div className="flex-row">
               <div className="flex-col flex-one-third">
-                <Card />
+                <TransitionGroup component='ul'>
+                  { renderCards = cards.map((card, i) => {
+                    return (<CardContainer
+                      component = 'li'
+                      key={i}
+                    />);
+                  })}
+                </TransitionGroup>
               </div>
             </div>
           </div>
@@ -25,6 +43,11 @@ class Home extends Component {
       </div>
     );
   }
+}
+
+function FirstChild(props) {
+  const childrenArray = React.Children.toArray(props.children);
+  return childrenArray[0] || null;
 }
 
 export default Home;
