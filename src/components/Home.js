@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import CardContainer from './CardContainer';
 
-import TransitionGroup from 'react-transition-group/TransitionGroup';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      visible: true,
-      cards: [1, 2, 3],
+      active: this.props.active
     }
   }
+  componentDidMount(){
+    //this.props.active == true;
+    this.setState({ active: true });
+  }
+  componentWillUnMount(){
+    this.setState({ active: false });
+  }
   render() {
-    const cards = this.state.cards;
-    let renderCards;
     return (
       <div className="home view">
 
@@ -21,33 +25,29 @@ class Home extends Component {
           <div className="container center-text">
             <div className="flex-row">
               <div className="flex-col flex-one-third">
-                <TransitionGroup component='ul'>
-                  { renderCards = cards.map((card, i) => {
-                    return (<CardContainer
-                      component = 'li'
-                      key={i}
-                    />);
-                  })}
-                </TransitionGroup>
+                <CSSTransitionGroup
+                  transitionName="fade"
+                  transitionAppear={true}
+                  transitionAppearTimeout={500}
+                  transitionEnterTimeout={1000}
+                  transitionLeaveTimeout={3000}
+                >
+                  <CardContainer />
+                </CSSTransitionGroup>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="home-background">
-        	<div className="home-background-piece background-piece-left-color"></div>
+        <div id="home-background" className={'home-background ' + (this.state.active === true ? 'animate' : null)}>
+        	{/*<div className="home-background-piece background-piece-left-color"></div> */}
         	<div className="home-background-piece background-piece-right-color"></div>
-        	<div className="home-background-piece background-piece-left-main"></div>
+        	{/*<div className="home-background-piece background-piece-left-main"></div> */}
         	<div className="home-background-piece background-piece-right-main"></div>
         </div>
       </div>
     );
   }
-}
-
-function FirstChild(props) {
-  const childrenArray = React.Children.toArray(props.children);
-  return childrenArray[0] || null;
 }
 
 export default Home;
