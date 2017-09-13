@@ -31,6 +31,10 @@ body, html {
 	margin: 0;
 	color: $black;
 	font-family: $body-font;
+	text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
 
 	&.no-scroll {
 		position: fixed;
