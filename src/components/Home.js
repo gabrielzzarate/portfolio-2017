@@ -39,12 +39,29 @@ class Home extends Component {
           </div>
         </section>
 
-        <div id="home-background" className={'home-background ' + (this.state.active === true ? 'animate' : null)}>
-        	{/*<div className="home-background-piece background-piece-left-color"></div> */}
-        	<div className="home-background-piece background-piece-right-color"></div>
-        	{/*<div className="home-background-piece background-piece-left-main"></div> */}
-        	<div className="home-background-piece background-piece-right-main"></div>
-        </div>
+
+          <div className="home-background">
+            <CSSTransitionGroup
+              transitionName="background-color"
+              transitionAppear={true}
+              transitionAppearTimeout={3000}
+              transitionEnterTimeout={3000}
+              transitionLeaveTimeout={3000}
+            >
+          	 <div className="home-background-piece background-piece-right-color"></div>
+            </CSSTransitionGroup>
+
+            <CSSTransitionGroup
+              transitionName="background-main"
+              transitionAppear={true}
+              transitionAppearTimeout={3000}
+              transitionEnterTimeout={3000}
+              transitionLeaveTimeout={3000}
+            >
+             <div className="home-background-piece background-piece-right-main"></div>
+            </CSSTransitionGroup>
+          </div>
+
       </div>
     );
   }

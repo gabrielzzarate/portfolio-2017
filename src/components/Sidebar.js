@@ -20,6 +20,28 @@ class Sidebar extends Component {
 					</div>
                 </CSSTransitionGroup>
 			</div>
+
+        	<div className="home-background">
+            <CSSTransitionGroup
+              transitionName="background-color"
+              transitionAppear={true}
+              transitionAppearTimeout={3000}
+              transitionEnterTimeout={3000}
+              transitionLeaveTimeout={3000}
+            >
+          	 <div className="home-background-piece background-piece-left-color"></div>
+            </CSSTransitionGroup>
+
+            <CSSTransitionGroup
+              transitionName="background-main"
+              transitionAppear={true}
+              transitionAppearTimeout={3000}
+              transitionEnterTimeout={3000}
+              transitionLeaveTimeout={3000}
+            >
+             <div className="home-background-piece background-piece-left-main"></div>
+            </CSSTransitionGroup>
+          </div>
 		</div>
     );
   }
