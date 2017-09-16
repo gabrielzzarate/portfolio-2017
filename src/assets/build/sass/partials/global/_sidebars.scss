@@ -2,22 +2,20 @@
 .navigation-sidebar {
 	border-right: 1px solid $ltgray;
 
+	@include tablet-small {
+		border-right: 0;
+	}
+
 	h2 {
 		margin-bottom: 0;
-		//font-size: 2.6rem;
+		@include font-size(28px);
 	}
-
-	.name {
-		text-align: center;
-	}
-
 }
 
-
 .sub-head {
-	margin-top: .4rem;
-    //font-size: 1.4rem;
+	margin-top: .2rem;
+    @include font-size(14px);
     letter-spacing: .5px;
     text-transform: uppercase;
-    color: #787878;
+    color: $ltgray;
 }
