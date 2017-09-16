@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import CardContainer from './CardContainer';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { ActionCreators } from '../actions';
 
 import { CSSTransitionGroup } from 'react-transition-group';
 
@@ -21,10 +24,8 @@ class Home extends Component {
     return (
       <div className="home view">
 
-        <section className="standard-section-padding">
-          <div className="container center-text">
-            <div className="flex-row">
-              <div className="flex-col flex-one-third">
+        <section className="standard-section-padding home-section">
+           <div className="container center-text">
                 <CSSTransitionGroup
                   transitionName="fade"
                   transitionAppear={true}
@@ -32,11 +33,9 @@ class Home extends Component {
                   transitionEnterTimeout={1000}
                   transitionLeaveTimeout={3000}
                 >
-                  <CardContainer />
+                	<CardContainer projects={this.props.content.projects} />
                 </CSSTransitionGroup>
-              </div>
             </div>
-          </div>
         </section>
 
 
@@ -67,4 +66,16 @@ class Home extends Component {
   }
 }
 
-export default Home;
+function mapDispatchToProps(dispatch){
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+
+function mapStateToProps(state){
+  return {
+    content: state.content,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
