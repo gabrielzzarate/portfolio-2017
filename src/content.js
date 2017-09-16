@@ -1,3 +1,6 @@
+import placeholderCardImage from './assets/production/images/project-thumbnail.jpg';
+
+
 export const projects = [
 	{
 		id: 1,
@@ -6,9 +9,13 @@ export const projects = [
 		projectCategory: "Web Dev",
 		projectDescription: "Turn unused real estate on your website into dynamic profit centers that connect sponsors with your club’s members.",
 		projectIcon: "icon-website-big",
+		cardImage: placeholderCardImage,
 		projectImage: "images/project-image-1.jpg",
+		projectRole: 'Conception, Art Direction, Web Design, Responsive Design',
+		projectTeam: 'Jason Lehmkuhle',
+		projectAgency: 'Vert Digital',
+		projectDate: '2017',
 		projectImageDescription: "Website Sponsorship project",
-		billingFrequency: 'Monthly',
 		additionalInfo: {},
 		projectOptions: [
 			{
@@ -40,10 +47,14 @@ export const projects = [
 		projectURL: "sponsor",
 		projectCategory: "Web Development",
 		projectDescription: "Turn your club’s emails into win-win opportunities by allowing sponsors to provide exclusive offers to your members.",
+		projectAgency: 'Vert Digital',
+		projectRole: 'Conception, Art Direction, Web Design, Responsive Design',
+		projectTeam: 'Jason Lehmkuhle',
+		projectDate: '2017',
+		cardImage: placeholderCardImage,
 		projectIcon: "icon-email-big",
 		projectImage: "images/project-image-2.jpg",
 		projectImageDescription: "Email Sponsorship project",
-		billingFrequency: 'Monthly',
 		additionalInfo: {},
 		projectOptions: [
 			{
@@ -62,13 +73,17 @@ export const projects = [
 	{
 		id: 3,
 		projectName: "VA Emergency",
-		projectURL: "sponsor",
+		projectURL: "vdem",
 		projectCategory: "Web Development",
 		projectDescription: "Put your sponsors front and center with value-add opportunities during your club’s registration process this season.",
 		projectIcon: "icon-registration",
+		cardImage: placeholderCardImage,
 		projectImage: "images/project-image-3.jpg",
 		projectImageDescription: "Registration Sponsorship project",
-		billingFrequency: 'Monthly',
+		projectAgency: 'Vert Digital',
+		projectRole: 'Conception, Art Direction, Web Design, Responsive Design',
+		projectTeam: 'Jason Lehmkuhle',
+		projectDate: '2017',
 		additionalInfo: {},
 		projectOptions: [
 			{

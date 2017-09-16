@@ -16,7 +16,7 @@ class Card extends Component {
 				className="photo-card">
 	        	<div className="photo-card-container">
 					<div className="card-image-container">
-						<img src={ cardImage } className="project-thumbnail" alt="Project Thumbnail" />
+						<img src={ project.cardImage } className="project-thumbnail" alt="Project Thumbnail" />
 					</div>
 
 					<div className="card-content-container">

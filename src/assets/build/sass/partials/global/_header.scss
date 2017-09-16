@@ -7,11 +7,16 @@ header {
 	a {
 		color: $black;
 		text-transform: uppercase;
-		//font-size: 1.2rem;
+		@include font-size(12px);
 		letter-spacing: .8px;
+		transition: color .25s ease-in;
 
 		&:first-of-type {
 			padding-right: 15px;
+		}
+
+		&:hover {
+			color: $ltgray;
 		}
 	}
 }
