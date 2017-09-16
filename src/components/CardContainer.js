@@ -5,10 +5,16 @@ import Card from './Card';
 
 class CardContainer extends Component {
   render() {
+  	const { projects } = this.props;
+
+  	const projectCards = projects.map((project, i) => {
+  		return (<Card key={i} project={project} /> );
+  	});
+
     return (
-      <div className="card-wrapper">
-        <h1>Site Content</h1>
-      </div>
+    	<div className="flex-row">
+        { projectCards }
+        </div>
     );
   }
 }
