@@ -7,20 +7,10 @@ import { ActionCreators } from '../actions';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 class Home extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      active: this.props.active
-    }
-  }
-  componentDidMount(){
-    //this.props.active == true;
-    this.setState({ active: true });
-  }
-  componentWillUnMount(){
-    this.setState({ active: false });
-  }
+
   render() {
+    const { animate } = this.props;
+
     return (
       <div className="home view">
 
@@ -42,8 +32,8 @@ class Home extends Component {
           <div className="home-background">
             <CSSTransitionGroup
               transitionName="background-color"
-              transitionAppear={true}
-              transitionAppearTimeout={3000}
+              transitionAppear={animate}
+              transitionAppearTimeout={1500}
               transitionEnterTimeout={3000}
               transitionLeaveTimeout={3000}
             >
@@ -52,8 +42,8 @@ class Home extends Component {
 
             <CSSTransitionGroup
               transitionName="background-main"
-              transitionAppear={true}
-              transitionAppearTimeout={3000}
+              transitionAppear={animate}
+              transitionAppearTimeout={1500}
               transitionEnterTimeout={3000}
               transitionLeaveTimeout={3000}
             >

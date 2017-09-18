@@ -1,6 +1,7 @@
-import * as ProjectActions from './projects';
-//import * as CalendarActions from './calendar-actions';
+import * as projectActions from './projects';
+import * as animationActions from './animations';
 
 export const ActionCreators = Object.assign({},
-	ProjectActions
+	projectActions,
+	animationActions,
 );
