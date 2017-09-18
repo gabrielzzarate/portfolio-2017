@@ -7,9 +7,9 @@ import { CSSTransitionGroup } from 'react-transition-group';
 
 // child components
 import Sidebar from './components/Sidebar';
-import Home from './components/Home';
-import About from './components/About';
-import Project from './components/Project';
+import HomeContainer from './components/HomeContainer';
+import AboutContainer from './components/AboutContainer';
+import ProjectContainer from './components/ProjectContainer';
 
 
 class App extends Component {
@@ -18,12 +18,10 @@ class App extends Component {
     return (
       <Router>
         <div className="flex-row full-height">
-          <Sidebar content={this.props.content} />
-          <main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content">
-              <Route exact path="/" component={Home} />
-              <Route path="/about" component={About} />
-              <Route path="/project/:projectURL" component={Project}/>
-          </main>
+            <Route exact path="/" component={HomeContainer} />
+            <Route path="/about" component={AboutContainer} />
+            <Route path="/project/:projectURL" component={ProjectContainer}/>
+
 
           <header>
             <CSSTransitionGroup
@@ -36,7 +34,7 @@ class App extends Component {
               <Link className="nav-link" to='/'>
                 Home
               </Link>
-              <Link className="nav-link" to='/about'>
+              <Link onClick={ () => this.props.playHomeAnimation(true) } className="nav-link" to='/about'>
                 About
               </Link>
             </CSSTransitionGroup>

@@ -6,11 +6,11 @@ class Sidebar extends Component {
   render() {
     return (
       	<div className="flex-col flex-one-fourth flex-vertical-one-fourth flex-tablet-full navigation-sidebar">
-			<div className="flex-row full-height middle-xs center-flex">
+			   <div className="flex-row full-height middle-xs center-flex">
 				<CSSTransitionGroup
                   transitionName="heading"
                   transitionAppear={true}
-                  transitionAppearTimeout={1000}
+                  transitionAppearTimeout={2000}
                   transitionEnterTimeout={1000}
                   transitionLeaveTimeout={3000}
                 >
@@ -34,11 +34,13 @@ class Sidebar extends Component {
 						<span className="sub-head">Front-End Developer</span>
 					</div>
                 </CSSTransitionGroup>
-			</div>
+			   </div>
 
         	<div className="home-background">
             <CSSTransitionGroup
               transitionName="background-color"
+              transitionAppear={true}
+              transitionAppearTimeout={1000}
               transitionEnterTimeout={3000}
               transitionLeaveTimeout={3000}
             >
@@ -47,6 +49,8 @@ class Sidebar extends Component {
 
             <CSSTransitionGroup
               transitionName="background-main"
+              transitionAppear={true}
+              transitionAppearTimeout={1000}
               transitionEnterTimeout={3000}
               transitionLeaveTimeout={3000}
             >
