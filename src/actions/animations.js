@@ -1,4 +1,6 @@
 import * as types from './types';
+//import { TimelineMax, Expo } from '../lib/TweenMax.min.js';
+import { TimelineMax, Expo } from 'gsap';
 
 export function playHomeAnimation(bool){
 	return {
@@ -7,23 +9,34 @@ export function playHomeAnimation(bool){
 	}
 }
 
+function cb(){
+	console.log('transition complete');
+}
 
-// const duration = 1;
-// const backgroundMainLeft = document.querySelector(".background-piece-left-main");
-// const backgroundColorLeft = document.querySelector(".background-piece-left-main");
-// const backgroundColorRight = document.querySelector(".background-piece-right-color");
+//var tl = new TimelineMax({ onComplete: cb });
 
-
-// export default {
-// 	show(target, cb){
-// 		return TimelineMax({
-// 			.to(backgroundColorLeft, 1.2, {
-// 				scaleX: 1,
-// 				ease: Expo.easeInOut
-// 			}, 0).to(backgroundColorRight)
-// 			onComplete: function e(){
-// 				cb();
-// 			}
-// 		})
-// 	}
-// }
+export default {
+	transitionSidebar(colorPanel, mainPanel){
+		var tl = new TimelineMax({ onComplete: cb });
+		return tl
+			//.pause(0, true)
+			.to(colorPanel, 1.2, {
+				scaleX: 1,
+				ease: Expo.easeInOut }, .3)
+			.to(mainPanel, 1.2, {
+				scaleX: 1,
+				ease: Expo.easeInOut }, .4);
+			//.remove();
+	},
+	transitionMain(colorPanel, mainPanel){
+		var tl = new TimelineMax({ onComplete: cb });
+		return tl
+			.to(colorPanel, 1.2, {
+				scaleX: 1,
+				ease: Expo.easeInOut }, .3)
+			.to(mainPanel, 1.2, {
+				scaleX: 1,
+				ease: Expo.easeInOut }, .4);
+			//.remove();
+	},
+}

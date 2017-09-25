@@ -5,8 +5,12 @@ export function animations(state, action) {
         case 'PLAY_ANIMATE':
             return {
             	bool: action.bool,
+            	viewAnimationDelay: 2000,
             }
         default:
-            return false;
+            return {
+            	bool: false,
+            	viewAnimationDelay: 1000,
+            }
     }
 }
