@@ -129,21 +129,26 @@
 }
 
 
-.home-background {
+.main-background, .sidebar-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 
-.home-background-piece {
+.background-piece {
  position: absolute;
  top: 0;
  right: 0;
  width: 100%;
  height: 100%;
- z-index: -1;
+ //z-index: -1;
+ transform-origin: 100% 100% 0;
+ transform: scaleX(0);
+ //transition: all 1s;
+ //z-index: 400;
 }
 
 .background-piece-left-main,
@@ -440,6 +445,8 @@
 
 .change-view-enter {
 	opacity: 0.01 !important;
+	transition-delay: 1s;
+	transition: 1 ease-out;
 }
 
 .change-view-enter.change-view-enter-active {
@@ -455,11 +462,14 @@
 }
 
 .change-view-appear {
-	opacity: 0;
+	opacity: 0.01 !important;
+	transition-delay: 1s;
+	transition: 1s ease-out;
 }
 
 .change-view-appear.change-view-appear-active {
-	opacity: 0;
+	opacity: 1;
+	transition: 1s ease-out;
 }
 
 .transition-link {

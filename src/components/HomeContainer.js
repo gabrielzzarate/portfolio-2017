@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import CardContainer from './CardContainer';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -8,52 +9,49 @@ import Sidebar from './Sidebar';
 import Home from './Home';
 
 import { CSSTransitionGroup } from 'react-transition-group';
-//import { TransitionGroup } from 'react-transition-group';
+import animation from '../actions/animations';
 
 class HomeContainer extends Component {
-  render() {
-  	console.log('Home props', this.props);
-    const animate = this.props.animations;
+	constructor(props){
+		super(props);
+		this.runHomeTransition = this.runHomeTransition.bind(this);
+	}
 
-    return (
-      <div className="flex-row full-height">
-          <Sidebar />
-        <main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content">
-          <CSSTransitionGroup
-            transitionName="change-view"
-            transitionAppear={animate}
-            transitionAppearTimeout={1000}
-            transitionEnterTimeout={3000}
-            transitionLeaveTimeout={3000}
-          >
-            <Home animate={this.props.animation} />
-          </CSSTransitionGroup>
+	componentDidMount(){
+		if(this.props.animations.bool === true ){
+			this.runHomeTransition();
+		}
+	}
 
-          <div className="home-background">
-            <CSSTransitionGroup
-              transitionName="background-color"
-              transitionAppear={animate}
-              transitionAppearTimeout={1500}
-              transitionEnterTimeout={3000}
-              transitionLeaveTimeout={3000}
-            >
-              <div className="home-background-piece background-piece-right-color"></div>
-            </CSSTransitionGroup>
+	runHomeTransition(){
+		animation.transitionMain(this.homeBackgroundColor, this.homeBackgroundMain);
+	}
+	render() {
+		console.log('Home props', this.props);
+		const animate = this.props.animations;
 
-            <CSSTransitionGroup
-              transitionName="background-main"
-              transitionAppear={animate}
-              transitionAppearTimeout={1500}
-              transitionEnterTimeout={3000}
-              transitionLeaveTimeout={3000}
-            >
-              <div className="home-background-piece background-piece-right-main"></div>
-            </CSSTransitionGroup>
-          </div>
-        </main>
-     </div>
-    );
-  }
+		return (
+		    <div className="flex-row full-height">
+		    	<Sidebar animate={this.props.animations.bool} appLocation={this.props.match.path} />
+		    	<main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content">
+			      <CSSTransitionGroup
+			        transitionName="change-view"
+			        transitionAppear={true}
+			        transitionAppearTimeout={animate.viewAnimationDelay}
+			        transitionEnterTimeout={3000}
+			        transitionLeaveTimeout={3000}
+			      >
+		        		<Home playHomeAnimation={this.props.playHomeAnimation} animate={this.props.animations.bool} />
+		      	</CSSTransitionGroup>
+
+		      <div className="main-background">
+		          <div ref={ (div) => { this.homeBackgroundColor = div; } } className="background-piece background-piece-right-color"></div>
+		          <div ref={ (div) => { this.homeBackgroundMain = div; } } className="background-piece background-piece-right-main"></div>
+		      </div>
+		    </main>
+		 </div>
+		);
+	}
 }
 
 function mapDispatchToProps(dispatch){

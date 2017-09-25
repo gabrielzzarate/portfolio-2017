@@ -11,8 +11,7 @@ class Card extends Component {
 
     return (
     	<div className="flex-col flex-half card-wrapper">
-	        <Link
-				to={ `/project/${project.projectURL}` }
+	        <Link to={ `/project/${project.projectURL}`} onClick={ () => this.props.playHomeAnimation(true) }
 				className="photo-card">
 	        	<div className="photo-card-container">
 					<div className="card-image-container">

@@ -8,7 +8,7 @@ class CardContainer extends Component {
   	const { projects } = this.props;
 
   	const projectCards = projects.map((project, i) => {
-  		return (<Card key={i} project={project} /> );
+  		return (<Card playHomeAnimation={this.props.playHomeAnimation} key={i} project={project} /> );
   	});
 
     return (
