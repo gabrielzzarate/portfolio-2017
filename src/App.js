@@ -14,7 +14,6 @@ import ProjectContainer from './components/ProjectContainer';
 
 class App extends Component {
   render() {
-    console.log('App props', this.props);
     return (
       <Router>
         <div className="flex-row full-height">

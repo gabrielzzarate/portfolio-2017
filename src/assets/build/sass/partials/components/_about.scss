@@ -1,0 +1,41 @@
+
+.about-container {
+	padding-top: calc(50vh - 1.6rem);
+}
+
+.about-intro-paragraph {
+	//padding-top: 200px;
+	visibility: hidden;
+    opacity: 0;
+    margin-bottom: 3rem;
+    @include font-size(25px);
+}
+
+.about-section {
+	height: 1000px;
+}
+
+.about-section-head {
+
+	.about-section-title {
+		display: inline-block;
+	    width: 40%;
+	    font-size: 2.6rem;
+	    transform-origin: center left 0;
+	}
+
+	.about-section-line {
+		display: inline-block;
+		width: 60%;
+		height: 1px;
+		background: #ddd;
+		transform-origin: top left;
+		transform: scaleX(0);
+	}
+}
+
+.about-section-head {
+	margin-top: 100px;
+	visibility: hidden;
+	opacity: 0;
+}
