@@ -21,9 +21,7 @@ class AboutContainer extends Component {
 	}
 
 	runAboutTransition(){
-		//console.log('target', this.props.animation.animationTarget);
 		const target = document.getElementsByClassName('about-intro-paragraph');
-		console.log('target', target);
 		animation.animateAboutStart(this.aboutBackgroundColor, this.aboutBackgroundMain, target);
 	}
 
@@ -32,10 +30,9 @@ class AboutContainer extends Component {
 	}
 
 	render() {
-		console.log('about container props', this.props.animation);
 		return (
 		  <div className="flex-row full-height">
-		      <Sidebar appLocation={this.props.match.path} />
+		      <Sidebar project={null} heading={'about'} appLocation={this.props.match.path} />
 		    <main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content" onScroll={() => this.runAboutContentAnimation() } >
 		    	<CSSTransitionGroup
 			        transitionName="change-view"

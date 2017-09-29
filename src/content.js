@@ -1,16 +1,21 @@
 import placeholderCardImage from './assets/production/images/project-thumbnail.jpg';
-
+import sponsorCardImage from './assets/production/images/sportsengine-sponsor-image_resized.jpg';
+import sweetwaterVideo from './assets/production/video/swb-homepage-video.mp4';
+import analyzeCardImage from './assets/production/images/project-thumbnail_analyze.png';
 
 export const projects = [
 	{
 		id: 1,
 		projectName: "SweetWater Brewing",
 		projectURL: "sweetwater",
-		projectCategory: "Web Dev",
+		projectCategory: "Web Development",
 		projectDescription: "Turn unused real estate on your website into dynamic profit centers that connect sponsors with your club’s members.",
 		projectIcon: "icon-website-big",
-		cardImage: placeholderCardImage,
+		cardImage: null,
+		cardVideo: sweetwaterVideo,
+		projectColor: '#26356b',
 		projectImage: "images/project-image-1.jpg",
+
 		projectRole: 'Conception, Art Direction, Web Design, Responsive Design',
 		projectTeam: 'Jason Lehmkuhle',
 		projectAgency: 'Vert Digital',
@@ -45,13 +50,14 @@ export const projects = [
 		id: 2,
 		projectName: "Sponsorship App",
 		projectURL: "sponsor",
-		projectCategory: "Web Development",
+		projectCategory: "React / Redux Project",
 		projectDescription: "Turn your club’s emails into win-win opportunities by allowing sponsors to provide exclusive offers to your members.",
 		projectAgency: 'Vert Digital',
 		projectRole: 'Conception, Art Direction, Web Design, Responsive Design',
 		projectTeam: 'Jason Lehmkuhle',
 		projectDate: '2017',
-		cardImage: placeholderCardImage,
+		cardImage: sponsorCardImage,
+		projectColor: '#26356b',
 		projectIcon: "icon-email-big",
 		projectImage: "images/project-image-2.jpg",
 		projectImageDescription: "Email Sponsorship project",
@@ -72,12 +78,13 @@ export const projects = [
 	},
 	{
 		id: 3,
-		projectName: "VA Emergency",
-		projectURL: "vdem",
-		projectCategory: "Web Development",
+		projectName: "Analyze",
+		projectURL: "analyze",
+		projectCategory: "React App for Therapists",
 		projectDescription: "Put your sponsors front and center with value-add opportunities during your club’s registration process this season.",
 		projectIcon: "icon-registration",
-		cardImage: placeholderCardImage,
+		cardImage: analyzeCardImage,
+		projectColor: '#26356b',
 		projectImage: "images/project-image-3.jpg",
 		projectImageDescription: "Registration Sponsorship project",
 		projectAgency: 'Vert Digital',

@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// after
-//import { withRouter } from 'react-router-dom'
-
 
 
 class Project extends Component {
   render() {
-
-  	const projectURL = this.props.match.params.projectURL;
-
-  	const data = this.props.content.projects.filter((project) => {
-  		return project.projectURL === projectURL;
-  	});
-
-  	console.log('project data', data);
+  	const data = this.props.project;
     return (
         <section className="standard-section-padding project-section">
 
@@ -35,12 +24,5 @@ class Project extends Component {
   }
 }
 
-
-function mapStateToProps(state){
-  return {
-    content: state.content,
-  }
-}
-
-export default connect(mapStateToProps, {} )(Project);
+export default Project;
 

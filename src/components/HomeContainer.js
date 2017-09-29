@@ -18,6 +18,7 @@ class HomeContainer extends Component {
 	}
 
 	componentDidMount(){
+		animation.animateHomeHeading();
 		if(this.props.animations.bool === true ){
 			this.runHomeTransition();
 		}
@@ -27,12 +28,11 @@ class HomeContainer extends Component {
 		animation.transitionMain(this.homeBackgroundColor, this.homeBackgroundMain);
 	}
 	render() {
-		console.log('Home props', this.props);
 		const animate = this.props.animations;
 
 		return (
 		    <div className="flex-row full-height">
-		    	<Sidebar animate={this.props.animations.bool} appLocation={this.props.match.path} />
+		    	<Sidebar project={null} heading={'home'} animate={this.props.animations.bool} appLocation={this.props.match.path} />
 		    	<main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content">
 			      <CSSTransitionGroup
 			        transitionName="change-view"
