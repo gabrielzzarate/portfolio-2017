@@ -25,10 +25,19 @@ class ProjectContainer extends Component {
 	}
 
 	render() {
-		console.log('project container', this.props.match.path);
+		const projectURL = this.props.match.params.projectURL;
+
+	  	const data = this.props.content.projects.filter((project) => {
+	  		return project.projectURL === projectURL;
+	  	});
+
+	  	var styles = {
+			backgroundColor: data[0].projectColor,
+		};
+
 		return (
 		  <div className="flex-row full-height">
-		      <Sidebar animate={this.props.animations.bool} appLocation={this.props.match.path}  />
+		    <Sidebar project={data} heading={'project'} animate={this.props.animations.bool} appLocation={this.props.match.path}  />
 		    <main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content">
 		    	<CSSTransitionGroup
 			        transitionName="change-view"
@@ -37,11 +46,11 @@ class ProjectContainer extends Component {
 			        transitionEnterTimeout={3000}
 			        transitionLeaveTimeout={3000}
 			    >
-		      		<Project match={this.props.match} content={this.props.content} />
+		      		<Project project={data} />
 		      	</CSSTransitionGroup>
 
 		      <div className="main-background">
-		      		<div ref={ (div) => { this.projectBackgroundColor = div; } } className="background-piece background-piece-right-color"></div>
+		      		<div ref={ (div) => { this.projectBackgroundColor = div; } } style={styles} className="background-piece background-piece-right-color"></div>
               		<div ref={ (div) => { this.projectBackgroundMain = div; } } className="background-piece background-piece-right-main"></div>
 		      </div>
 		    </main>

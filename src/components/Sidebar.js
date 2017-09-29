@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import animation from '../actions/animations';
-
-
+import spanifyTitle from '../lib/helper-functions';
 
 class Sidebar extends Component {
 	constructor(props){
@@ -12,30 +11,17 @@ class Sidebar extends Component {
 
 	componentDidMount(){
 		if(this.props.animate === true ) {
-			console.log('run sidebar animation');
 			this.runSidebarTransition();
 		} else if (this.props.appLocation === "/about" || this.props.applocation === "/project/:projectURL") {
 			this.runSidebarTransition();
 		}
 	}
 
-	HomeGreeting(props) {
-  		return <h1>Gabriel Zarate</h1>;
-	}
-
-	AboutGreeting(props) {
-  		return <h1>Gabriel Zarate</h1>;
-	}
-
-	ProjectGreeting(props) {
-		return <h2>Project Title</h2>;
-	}
-
 	runSidebarTransition(){
 		animation.transitionSidebar(this.sidebarBackgroundColor, this.sidebarBackgroundMain);
 	}
   	render() {
-  		console.log('sidebar location', this.props.applocation);
+  		const { project } = this.props;
 	    return (
 	      	<div className="flex-col flex-one-fourth flex-vertical-one-fourth flex-tablet-full navigation-sidebar">
 				   <div className="flex-row full-height middle-xs center-flex">
@@ -46,30 +32,13 @@ class Sidebar extends Component {
 	                  transitionEnterTimeout={1000}
 	                  transitionLeaveTimeout={3000}
 	                >
-	                  <div className="name">
-							<h2>
-								<span>G</span>
-								<span>a</span>
-								<span>b</span>
-								<span>r</span>
-								<span>i</span>
-								<span>e</span>
-								<span>l</span>
-								<span>&nbsp;</span>
-								<span>Z</span>
-								<span>a</span>
-								<span>r</span>
-								<span>a</span>
-								<span>t</span>
-								<span>e</span>
-							</h2>
-							<span className="sub-head">Front-End Developer</span>
-						</div>
+	                <Heading heading={this.props.heading} projectName={project !== null ? project[0].projectName : null}  />
+
 	                </CSSTransitionGroup>
 				   </div>
 
 	        	<div className="sidebar-background">
-	          	 <div ref={ (div) => { this.sidebarBackgroundColor = div; } } className="background-piece background-piece-left-color"></div>
+	          	 <div ref={ (div) => { this.sidebarBackgroundColor = div; } } style={ project !== null ? { backgroundColor: project[0].projectColor } : { backgroundColor: '#e8eaef' } } className="background-piece background-piece-left-color"></div>
 	             <div ref={ (div) => { this.sidebarBackgroundMain = div; } } className="background-piece background-piece-left-main"></div>
 	          </div>
 			</div>
@@ -78,3 +47,56 @@ class Sidebar extends Component {
 }
 
 export default Sidebar;
+
+function Heading(props){
+	const heading = props.heading;
+	//const projectName = spanifyTitle(props.projectName);
+	const projectName = props.projectName;
+
+	if(heading === 'home'){
+		return <div className="name">
+			<h2>
+				<span>G</span>
+				<span>a</span>
+				<span>b</span>
+				<span>r</span>
+				<span>i</span>
+				<span>e</span>
+				<span>l</span>
+				<span>&nbsp;</span>
+				<span>Z</span>
+				<span>a</span>
+				<span>r</span>
+				<span>a</span>
+				<span>t</span>
+				<span>e</span>
+			</h2>
+			<span className="sub-head">Front-End Developer</span>
+		</div>
+	} else if (heading === 'about') {
+		return <div className="name">
+			<h2>
+				<span>G</span>
+				<span>a</span>
+				<span>b</span>
+				<span>r</span>
+				<span>i</span>
+				<span>e</span>
+				<span>l</span>
+				<span>&nbsp;</span>
+				<span>Z</span>
+				<span>a</span>
+				<span>r</span>
+				<span>a</span>
+				<span>t</span>
+				<span>e</span>
+			</h2>
+		</div>
+	} else {
+		return <div className="name">
+			<h2>
+				{ projectName }
+			</h2>
+		</div>
+	}
+}

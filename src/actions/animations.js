@@ -31,8 +31,8 @@ function cbContent(){
 const timelineContent = new TimelineMax({ onComplete: cbContent });
 
 const target = document.querySelector('about-intro-paragraph');
-const aboutContent = document.getElementsByClassName('about-section-head');
-const aboutLine = document.getElementsByClassName('about-section-line');
+const aboutContent = document.getElementsByClassName('section-head');
+const aboutLine = document.getElementsByClassName('section-line');
 
 export default {
 	transitionSidebar(colorPanel, mainPanel){
@@ -89,20 +89,25 @@ export default {
 				scaleX: 1,
 				ease: Expo.easeOut
 			}, .2);
+	},
+	animateHomeHeading(){
+		const timelineHome = new TimelineMax({ onComplete: cb });
+		return timelineHome
+			.staggerFromTo(aboutContent, 2, {
+				autoAlpha: 0,
+				y: 30
+			}, {
+				autoAlpha: 1,
+				y: 0,
+				ease: Expo.easeOut
+			}, 0, 1.4)
+			.fromTo(aboutLine, 1.8, {
+				scaleX: 0
+			}, {
+				scaleX: 1,
+				ease: Expo.easeOut
+			}, 1.6, 2.5);
 	}
 }
 
 
-// a.fromTo(r, 2, {
-//                         autoAlpha: 0,
-//                         y: 30
-//                     }, {
-//                         autoAlpha: 1,
-//                         y: 0,
-//                         ease: Expo.easeOut
-//                     }, 0).fromTo(i, 1.8, {
-//                         scaleX: 0
-//                     }, {
-//                         scaleX: 1,
-//                         ease: Expo.easeOut
-//                     }, .2);
