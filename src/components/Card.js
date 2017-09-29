@@ -9,8 +9,10 @@ class Card extends Component {
   	const projectTitle = spanifyTitle(project.projectName);
   	const projectCategory = spanifyTitle(project.projectCategory);
 
+  	console.log('project', project);
+
     return (
-    	<div className="flex-col flex-half card-wrapper">
+    	<div className={"flex-col flex-half card-wrapper " + (project ? project.id + '-card' : '') }>
 	        <Link to={ `/project/${project.projectURL}`} onClick={ () => this.props.playHomeAnimation(true) }
 				className="photo-card">
 	        	<div className="photo-card-container">

@@ -18,7 +18,7 @@ class HomeContainer extends Component {
 	}
 
 	componentDidMount(){
-		animation.animateHomeHeading();
+		animation.animateHome();
 		if(this.props.animations.bool === true ){
 			this.runHomeTransition();
 		}
