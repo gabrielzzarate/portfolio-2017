@@ -30,7 +30,7 @@ class App extends Component {
                 transitionEnterTimeout={0}
                 transitionLeaveTimeout={0}
               >
-              <Link className="nav-link" to='/'>
+              <Link onClick={ () => this.props.playHomeAnimation(true) } className="nav-link" to='/'>
                 Home
               </Link>
               <Link onClick={ () => this.props.playHomeAnimation(true) } className="nav-link" to='/about'>
