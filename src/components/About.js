@@ -1,45 +1,96 @@
 import React, { Component } from 'react';
 import CardContainer from './CardContainer';
 import VisibilitySensor from 'react-visibility-sensor';
-
+import { TimelineMax } from 'gsap';
 import { CSSTransitionGroup } from 'react-transition-group';
 import animation from '../actions/animations';
+import * as targets from '../lib/animation-targets';
 
-class AboutSectionHead extends Component {
-	render(){
-		this.props.isVisible == true ? alert('visible') : console.log('not visible');
-	    return <div className="section-head about">
-				    <h2 className="section-title">About Me</h2>
-				    <span className="section-line"></span>
-				</div>;
-	}
+function AboutSectionHead(props) {
+    return (
+    	<div className="section-head about">
+			<h2 className="section-title">About Me</h2>
+			    <span className="section-line"></span>
+			</div>
+	);
+
+}
+
+function AboutSubSectionSkills(props){
+	return (
+		<div className="sub-section sub-about">
+		    <h3 className="flex-col flex-forty sub-section-title">What I Do</h3>
+		    <div className="flex-col flex-sixty sub-section-list">
+		    	<span className="sub-section-list-item skills-item">React / Redux</span>
+		    	<span className="sub-section-list-item skills-item">SASS / Flexbox / Grid</span>
+		    	<span className="sub-section-list-item skills-item">UI/UX</span>
+		    </div>
+		</div>
+	);
+}
+
+function AboutSubSectionOtherTech(props){
+	return (
+		<div className="sub-section sub-tech">
+		    <h3 className="flex-col flex-forty sub-section-title">Other Technologies</h3>
+		    <div className="flex-col flex-sixty sub-section-list">
+		    	<span className="sub-section-list-item tech-item">Greensock.js</span>
+		    	<span className="sub-section-list-item tech-item">D3.js</span>
+		    	<span className="sub-section-list-item tech-item">UI/UX</span>
+		    </div>
+		</div>
+	);
 }
 
 class About extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			visibilityActive: true,
+			visibilitySectionActive: true,
+			visibilitySubSectionSkillsActive: true,
+			visibilitySubSectionTechActive: true,
 		}
-		this.onChange = this.onChange.bind(this);
+		this.onChangeSection = this.onChangeSection.bind(this);
+		this.onChangeSubSectionSkills = this.onChangeSubSectionSkills.bind(this);
+		this.onChangeSubSectionTech = this.onChangeSubSectionTech.bind(this);
 	}
 
 	componentWillMount(){
 		this.props.getAnimationTarget([this.aboutContentIntroOne, this.aboutContentIntroTwo ]);
 	}
 
-	onChange(isVisible) {
+	onChangeSection(isVisible) {
 		if(isVisible){
-			animation.animateAboutContent();
+			animation.animateAboutSection();
 			this.setState({
-				visibilityActive: false
+				visibilitySectionActive: false
 			});
 		}
-    	//console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
+  	}
+
+  	onChangeSubSectionSkills(isVisible) {
+		if(isVisible){
+			const timelineSubSectionSkills = new TimelineMax({ onComplete: cbSub });
+			animation.animateSubSectionSkills(timelineSubSectionSkills);
+			this.setState({
+				visibilitySubSectionSkillsActive: false
+			});
+		}
+   	}
+
+  	onChangeSubSectionTech(isVisible) {
+		if(isVisible){
+			const timelineSubSectionTech = new TimelineMax({ onComplete: cbSub });
+			animation.animateSubSectionTech(timelineSubSectionTech);
+			this.setState({
+				visibilitySubSectionTechActive: false
+			});
+		}
   	}
 
 	render() {
 		console.log('about state', this.state);
+
 		return (
 		    <div className="about view">
 			    <section className="standard-section-padding about-section">
@@ -47,8 +98,16 @@ class About extends Component {
 			           <p ref={ (p) => { this.aboutContentIntroOne = p;} } className="about-intro-paragraph">I'm a Atlanta based web developer specializing in React / Redux development. I currently work at Vert Digital and love to code stuff.</p>
 			           <p ref={ (p) => { this.aboutContentIntroTwo = p;} } className="about-intro-paragraph">I love to create interactive solutions with a strong emphasis on clean, simple, and usable design.</p>
 
-		           		<VisibilitySensor onChange={this.onChange} active={this.state.visibilityActive}>
+		           		<VisibilitySensor onChange={this.onChangeSection} active={this.state.visibilitySectionActive}>
 						   	<AboutSectionHead />
+						</VisibilitySensor>
+
+						<VisibilitySensor onChange={this.onChangeSubSectionSkills} active={this.state.visibilitySubSectionSkillsActive}>
+						   	<AboutSubSectionSkills />
+						</VisibilitySensor>
+
+						<VisibilitySensor onChange={this.onChangeSubSectionTech} active={this.state.visibilitySubSectionTechActive}>
+						   	<AboutSubSectionOtherTech />
 						</VisibilitySensor>
 			        </div>
 			    </section>
@@ -58,3 +117,7 @@ class About extends Component {
 }
 
 export default About;
+
+function cbSub(){
+	console.log('sub ANIMATE');
+}

@@ -1,6 +1,7 @@
 import * as types from './types';
 //import { TimelineMax, Expo } from '../lib/TweenMax.min.js';
 import { TimelineMax, Expo } from 'gsap';
+import * as targets from '../lib/animation-targets';
 
 
 export function playHomeAnimation(bool){
@@ -17,6 +18,7 @@ export function getAnimationTarget(target){
 	}
 }
 
+// timeline onComplete callbacks
 function cb(){
 	console.log('transition complete');
 }
@@ -25,14 +27,13 @@ function cbContent(){
 	console.log('content animation complete');
 }
 
-//var tl = new TimelineMax({ onComplete: cb });
-//console.log('aboutContent', aboutContent);
-//const timelineContent = new TimelineMax({ onComplete: cbContent });
-const timelineContent = new TimelineMax({ onComplete: cbContent });
+function cbSub(){
+	console.log('sub ANIMATE');
+}
 
-const target = document.querySelector('about-intro-paragraph');
-const heading = document.getElementsByClassName('section-head');
-const aboutLine = document.getElementsByClassName('section-line');
+const timelineAboutSection = new TimelineMax({ onComplete: cbContent });
+const timelineSubSectionSkills = new TimelineMax({ onComplete: cbSub });
+const timelineSubSectionTech = new TimelineMax({ onComplete: cbSub });
 
 export default {
 	transitionSidebar(colorPanel, mainPanel){
@@ -40,20 +41,20 @@ export default {
 		return timeline
 			.to(colorPanel, 1.2, {
 				scaleX: 1,
-				ease: Expo.easeInOut }, .3)
+				ease: Expo.easeInOut }, 0)
 			.to(mainPanel, 1.2, {
 				scaleX: 1,
-				ease: Expo.easeInOut }, .4);
+				ease: Expo.easeInOut }, .1);
 	},
 	transitionMain(colorPanel, mainPanel){
 		var timeline = new TimelineMax({ onComplete: cb });
 		return timeline
 			.to(colorPanel, 1.2, {
 				scaleX: 1,
-				ease: Expo.easeInOut }, .3)
+				ease: Expo.easeInOut }, 0)
 			.to(mainPanel, 1.2, {
 				scaleX: 1,
-				ease: Expo.easeInOut }, .4);
+				ease: Expo.easeInOut }, .1);
 	},
 	animateAboutStart(colorPanel, mainPanel, intro){
 		var timeline = new TimelineMax({ onComplete: cb });
@@ -73,9 +74,9 @@ export default {
 				ease: Expo.easeOut
 			}, 0, 2);
 	},
-	animateAboutContent(){
-		return timelineContent
-			.staggerFromTo(heading, 2, {
+	animateAboutSection(){
+		return timelineAboutSection
+			.staggerFromTo(targets.heading, 2, {
 				autoAlpha: 0,
 				y: 30
 			}, {
@@ -83,21 +84,56 @@ export default {
 				y: 0,
 				ease: Expo.easeOut
 			}, 0)
-			.fromTo(aboutLine, 1.8, {
+			.fromTo(targets.aboutLine, 1.8, {
 				scaleX: 0
 			}, {
 				scaleX: 1,
 				ease: Expo.easeOut
 			}, .2);
 	},
+	animateSubSectionSkills(tl){
+		return tl
+			.fromTo(targets.subSectionSkills, 1.2, {
+				autoAlpha: 0,
+				y: 30
+			}, {
+				autoAlpha: 1,
+				y: 0,
+				ease: Expo.easeOut
+			}, 0)
+			.staggerFromTo(targets.skillsListItem, 1.2, {
+				autoAlpha: 0,
+				y: 30
+			}, {
+				autoAlpha: 1,
+				y: 0,
+				ease: Expo.easeOut
+			}, .05, .1);
+	},
+	animateSubSectionTech(tl){
+		return tl
+			.fromTo(targets.subSectionTech, 1.2, {
+				autoAlpha: 0,
+				y: 30
+			}, {
+				autoAlpha: 1,
+				y: 0,
+				ease: Expo.easeOut
+			}, 0)
+			.staggerFromTo(targets.techListItem, 1.2, {
+				autoAlpha: 0,
+				y: 30
+			}, {
+				autoAlpha: 1,
+				y: 0,
+				ease: Expo.easeOut
+			}, .05, .1);
+	},
 	animateHome(){
 		const timelineHome = new TimelineMax({ onComplete: cb });
-		const cardOne = document.getElementsByClassName('1-card');
-		const cardTwo = document.getElementsByClassName('2-card');
-		const cardThree = document.getElementsByClassName('3-card');
 
 		return timelineHome
-			.staggerFromTo(cardOne, 2, {
+			.staggerFromTo(targets.cardOne, 2, {
 				autoAlpha: 0,
 				y: 40
 			}, {
@@ -105,7 +141,7 @@ export default {
 				y: 0,
 				ease: Expo.easeOut
 			}, 0, 1.4)
-			.staggerFromTo(cardTwo, 2, {
+			.staggerFromTo(targets.cardTwo, 2, {
 				autoAlpha: 0,
 				y: 40
 			}, {
@@ -113,7 +149,7 @@ export default {
 				y: 0,
 				ease: Expo.easeOut
 			}, 0, 1.8)
-			.staggerFromTo(cardThree, 2, {
+			.staggerFromTo(targets.cardThree, 2, {
 				autoAlpha: 0,
 				y: 40
 			}, {
@@ -121,7 +157,7 @@ export default {
 				y: 0,
 				ease: Expo.easeOut
 			}, 0, 2)
-			.staggerFromTo(heading, 2, {
+			.staggerFromTo(targets.heading, 2, {
 				autoAlpha: 0,
 				y: 30
 			}, {
@@ -129,7 +165,7 @@ export default {
 				y: 0,
 				ease: Expo.easeOut
 			}, 0, 1.8)
-			.fromTo(aboutLine, 1.8, {
+			.fromTo(targets.aboutLine, 1.8, {
 				scaleX: 0
 			}, {
 				scaleX: 1,
