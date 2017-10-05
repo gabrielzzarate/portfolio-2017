@@ -1,0 +1,47 @@
+///////////////////////////////
+// Single Project Styles
+//////////////////////////////
+
+.project-single-details {
+
+	// img {
+	// 	display: block;
+	// 	width: 100%;
+	// 	transition: opacity .45s, transform .5s ease-out;
+
+	// 	//padding-bottom: 20px;
+
+	// 	&:hover {
+	// 		transform:  scale(1.05);
+	// 	}
+	// }
+}
+
+.project-large-image-container {
+	position: relative;
+	display: block;
+	//overflow: hidden;
+	width: 500px;
+	height: 400px;
+
+	margin-bottom: 15px;
+
+	&:hover {
+
+		img {
+			transform:  scale(1.05);
+		}
+	}
+
+
+	img {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		//height: 100%;
+		//z-index: -1;
+		display: block;
+		transition: opacity .45s, transform .5s ease-out;
+	}
+}
