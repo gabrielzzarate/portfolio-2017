@@ -31,6 +31,8 @@ class ProjectContainer extends Component {
 	  		return project.projectURL === projectURL;
 	  	});
 
+	  	console.log('data', data);
+
 	  	var styles = {
 			backgroundColor: data[0].projectColor,
 		};

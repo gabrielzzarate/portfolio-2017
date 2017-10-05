@@ -73,6 +73,10 @@ header, section, footer, div {
 			padding: $section-tb-padding-mobile 0;
 		}
 	}
+
+	&.no-padding-bottom {
+		padding: $section-tb-padding $section-rl-padding 0 $section-rl-padding;
+	}
 }
 
 .desktop-element {
