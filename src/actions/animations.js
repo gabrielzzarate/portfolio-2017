@@ -129,6 +129,20 @@ export default {
 				ease: Expo.easeOut
 			}, .05, .1);
 	},
+	animateProjectEnter(){
+		const timelineProject = new TimelineMax({ onComplete: cb });
+
+		return timelineProject
+			.staggerFromTo(targets.projectContainer, 2, {
+				autoAlpha: 0,
+				y: 40
+			}, {
+				autoAlpha: 1,
+				y: 0,
+				ease: Expo.easeOut
+			}, 0, 1.4);
+
+	},
 	animateHome(){
 		const timelineHome = new TimelineMax({ onComplete: cb });
 
