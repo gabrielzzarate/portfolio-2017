@@ -1,7 +1,7 @@
 // Require Gulp & Plugins
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var gp_rename = require('gulp-rename');
+//var gp_rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 var imagemin = require('gulp-imagemin');
 var gp_concat = require('gulp-concat');
@@ -30,7 +30,7 @@ gulp.task('sass-minify', function () {
 	    .src(buildstyles)
 	    .pipe(sass(sassOptions).on('error', sass.logError))
 	    .pipe(autoprefixer(autoprefixerOptions))
-	    .pipe(gp_rename( projectPrefix + '-main.min.css'))
+	    //.pipe(gp_rename( projectPrefix + '-main.min.css'))
 	    .pipe(gulp.dest(productionstyles));
 });
 
@@ -45,7 +45,7 @@ gulp.task('uglify-lib', function(){
 	    .src(buildlib)
         .pipe(gp_concat( projectPrefix + '-libraries.js'))
         .pipe(gulp.dest(buildlibroot))
-        .pipe(gp_rename( projectPrefix + '-libraries.min.js'))
+        //.pipe(gp_rename( projectPrefix + '-libraries.min.js'))
         .pipe(gp_uglify())
         .pipe(gulp.dest(productionjs));
 });
@@ -59,7 +59,7 @@ gulp.task('uglify-ie-lib', function(){
 	    .src(buildielib)
         .pipe(gp_concat( projectPrefix + '-ie-libraries.js'))
         .pipe(gulp.dest(buildielibroot))
-        .pipe(gp_rename( projectPrefix + '-ie-libraries.min.js'))
+        //.pipe(gp_rename( projectPrefix + '-ie-libraries.min.js'))
         .pipe(gp_uglify())
         .pipe(gulp.dest(productionjs));
 });
@@ -73,7 +73,7 @@ gulp.task('uglify-main', function(){
 	    .src(buildmain)
         .pipe(gp_concat( projectPrefix + '-main.js'))
         .pipe(gulp.dest(buildmainroot))
-        .pipe(gp_rename( projectPrefix + '-main.min.js'))
+        //.pipe(gp_rename( projectPrefix + '-main.min.js'))
         .pipe(gp_uglify())
         .pipe(gulp.dest(productionjs));
 });
