@@ -2,7 +2,10 @@ import placeholderCardImage from './assets/production/images/project-thumbnail.j
 import sponsorCardImage from './assets/production/images/sportsengine-sponsor-image_resized.jpg';
 import sweetwaterVideo from './assets/production/video/swb-homepage-video.mp4';
 import analyzeCardImage from './assets/production/images/project-thumbnail_analyze.png';
-import sweetwaterLg from './assets/production/images/wtwtsw-callout.jpg';
+import browserSweetWater from './assets/production/images/sweetwater-desktop.png';
+import browserSponsor from './assets/production/images/sponsor-desktop.png';
+import browserAnalyze from './assets/production/images/analyze-desktop.png';
+
 
 export const projects = [
 	{
@@ -14,7 +17,7 @@ export const projects = [
 		cardImage: null,
 		cardVideo: sweetwaterVideo,
 		projectColor: '#128879',
-		projectImgLg: sweetwaterLg,
+		projectDesktop: browserSweetWater,
 		projectLink: 'http://sweetwaterbrew.com/',
 		technologyUsed: 'SASS, Flexbox, Swiper, Wordpress',
 		projectRole: 'Conception, Art Direction, Web Design, Responsive Design',
@@ -29,7 +32,7 @@ export const projects = [
 		projectName: "Sponsorship App",
 		projectURL: "sponsor",
 		projectCategory: "React / Redux Project",
-		projectImgLg: sweetwaterLg,
+		projectDesktop: browserSponsor,
 		projectLink: 'http://inspire.sportsengine.com/',
 		projectDescription: "Turn your club’s emails into win-win opportunities by allowing sponsors to provide exclusive offers to your members.",
 		projectAgency: 'Vert Digital',
@@ -47,7 +50,7 @@ export const projects = [
 		projectLink: 'http://gabrielzzarate.github.io/analyze-finalproject/',
 		projectDescription: "Put your sponsors front and center with value-add opportunities during your club’s registration process this season.",
 		cardImage: analyzeCardImage,
-		projectImgLg: sweetwaterLg,
+		projectDesktop: browserAnalyze,
 		projectColor: 'rgba(38,53,107,0.8)',
 		projectImage: "images/project-image-3.jpg",
 		projectImageDescription: "SportsEngine Sponsorship App",

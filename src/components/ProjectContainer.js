@@ -22,6 +22,7 @@ class ProjectContainer extends Component {
 
 	runProjectTransition(){
 		animation.transitionMain(this.projectBackgroundColor, this.projectBackgroundMain);
+		animation.animateProjectEnter();
 	}
 
 	render() {
@@ -30,8 +31,6 @@ class ProjectContainer extends Component {
 	  	const data = this.props.content.projects.filter((project) => {
 	  		return project.projectURL === projectURL;
 	  	});
-
-	  	console.log('data', data);
 
 	  	var styles = {
 			backgroundColor: data[0].projectColor,
@@ -44,7 +43,7 @@ class ProjectContainer extends Component {
 		    	<CSSTransitionGroup
 			        transitionName="change-view"
 			        transitionAppear={true}
-			        transitionAppearTimeout={2000}
+			        transitionAppearTimeout={1200}
 			        transitionEnterTimeout={3000}
 			        transitionLeaveTimeout={3000}
 			    >
