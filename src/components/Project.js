@@ -8,13 +8,13 @@ class Project extends Component {
 		const data = this.props.project;
 
 	return (
-	    <section className="standard-section-padding no-padding-bottom project-section">
+	    <section className="standard-section-padding project-section">
 
-			<div className="flex-row full-height bottom-xs">
+			<div className="flex-row full-height bottom-xs-desktop">
 
 				<div className="flex-col flex-two-thirds project-single-details">
 					<div className="project-large-image-container">
-						<img src={data[0].projectDesktop} />
+						<img src={data[0].projectDesktop} alt={data[0].projectName} />
 					</div>
 
 	    			<div className="project-details">

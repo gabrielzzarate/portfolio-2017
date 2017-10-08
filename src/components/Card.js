@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import cardImage from '../assets/production/images/project-thumbnail.jpg';
 
 class Card extends Component {
 
@@ -8,8 +7,6 @@ class Card extends Component {
   	const { project } = this.props;
   	const projectTitle = spanifyTitle(project.projectName);
   	const projectCategory = spanifyTitle(project.projectCategory);
-
-  	console.log('project', project);
 
     return (
     	<div className={"flex-col flex-half card-wrapper " + (project ? project.id + '-card' : '') }>
@@ -51,12 +48,3 @@ function spanifyTitle(title){
 }
 
 
-
-/*
-
-<Link
-to={ `/packages/${info.packageName}` }
-className="button package-selector"
-onClick={ marketoSub }>Select</Link>
-
-*/

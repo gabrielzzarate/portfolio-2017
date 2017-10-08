@@ -1,24 +1,20 @@
 
 
 .view {
-	//width: 100vw;
 	min-height: 100vh;
-	//overflow-y: scroll;
-
 }
 
-main {
-	overflow-y: scroll;
+body {
+	min-height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	@include mobile {
+		overflow-y: scroll;
+	}
 }
 
 .home {
 	z-index: 1;
 }
 
-// .home-background {
-// 	z-index: 400000;
-// }
-
-.project-section {
-	height: 100vh;
-}

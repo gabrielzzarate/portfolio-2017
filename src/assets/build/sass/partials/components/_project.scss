@@ -2,9 +2,20 @@
 // Single Project Styles
 //////////////////////////////
 
+
 .project-section {
-	//background: url('../images/wtwtsw-callout.jpg') center center no-repeat;
-	//background: #e8eaef;
+	height: 100vh;
+
+	@include tablet-small {
+		padding-top: 350px !important;
+	}
+}
+
+.project-container {
+	.transition-group-wrapper {
+		display: block;
+		width: 100%;
+	}
 }
 
 .project-large-image-container {
@@ -46,3 +57,5 @@
 	    letter-spacing: .4px;
 	}
 }
+
+

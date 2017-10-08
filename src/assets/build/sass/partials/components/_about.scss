@@ -1,6 +1,8 @@
 
 .about-container {
-	padding-top: calc(50vh - 1.6rem);
+	@include landscape {
+		padding-top: calc(60vh - 1.6rem);
+	}
 }
 
 .about-intro-paragraph {
@@ -9,21 +11,50 @@
     opacity: 0;
     margin-bottom: 3rem;
     @include font-size(25px);
+
+    @include tablet-small {
+    	@include font-size(20px);
+    }
 }
 
 .about-section {
-	height: 1000px;
+
+	@include tablet-small {
+		padding: 20px !important;
+	}
 }
 
 // Section Head
 
 .section-head {
 
+	@include tablet-small {
+		text-align: left;
+	}
+
 	.section-title {
 		display: inline-block;
 	    width: 40%;
 	    font-size: 2.6rem;
 	    transform-origin: center left 0;
+
+	    @include desktop-small {
+	    	font-size: 2.2rem;
+	    }
+
+	    @include vertical {
+	    	font-size: 2rem;
+	    }
+
+	    @include tablet-small {
+			font-size: 1.6rem;
+			width: 100%;
+			margin-bottom: 0;
+	    }
+
+	    @include mobile {
+	    	@include font-size(28px);
+	    }
 	}
 
 	.section-line {
@@ -33,6 +64,10 @@
 		background: #ddd;
 		transform-origin: top left;
 		transform: scaleX(0);
+
+		@include tablet-small {
+			width: 100%;
+		}
 	}
 }
 
@@ -54,17 +89,17 @@
 .sub-section {
 	visibility: hidden;
 	opacity: 0;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-align: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
+    // display: flex;
+    // -webkit-box-orient: horizontal;
+    // -webkit-box-direction: normal;
+    // -ms-flex-direction: row;
+    // flex-direction: row;
+    // -webkit-box-align: baseline;
+    // -ms-flex-align: baseline;
+    // align-items: baseline;
     padding-bottom: 4.5rem;
     padding-top: 4.5rem;
-    //padding-left: 40px;
+    
 
     .sub-section-head {
 	    font-size: 1.2rem;
@@ -84,4 +119,17 @@
 	    	display: block;
 	    }
     }
+}
+
+.sub-section-title {
+	@include tablet-small {
+		padding-bottom: 15px;
+	}
+}
+
+.sub-section-list-item {
+	@include tablet-small {
+		@include font-size(18px);
+		//line-height: 1.3;
+	}
 }

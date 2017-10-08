@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import CardContainer from './CardContainer';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../actions';
+import { TimelineMax } from 'gsap';
 
 import Sidebar from './Sidebar';
 import Project from './Project';
 import animation from '../actions/animations';
 
+import ProjectList from './ProjectList';
+
 import { CSSTransitionGroup } from 'react-transition-group';
+
+
+function cb(){
+	console.log('transition complete');
+}
 
 class ProjectContainer extends Component {
 	constructor(props){
@@ -21,8 +28,15 @@ class ProjectContainer extends Component {
 	}
 
 	runProjectTransition(){
-		animation.transitionMain(this.projectBackgroundColor, this.projectBackgroundMain);
-		animation.animateProjectEnter();
+		//const timelineProject = new TimelineMax({ onComplete: cb });
+
+		if( document.body.classList.contains('isMobile') ){
+			animation.transitionMain(this.projectBackgroundColorMobile, this.projectBackgroundMainMobile);
+			animation.animateProjectEnter();
+		} else {
+			animation.transitionMain(this.projectBackgroundColor, this.projectBackgroundMain);
+			animation.animateProjectEnter();
+		}
 	}
 
 	render() {
@@ -37,25 +51,33 @@ class ProjectContainer extends Component {
 		};
 
 		return (
-		  <div className="flex-row full-height">
+			<div>
+			<div className="project-container flex-row full-height">
 		    <Sidebar project={data} heading={'project'} animate={this.props.animations.bool} appLocation={this.props.match.path}  />
 		    <main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content">
 		    	<CSSTransitionGroup
 			        transitionName="change-view"
 			        transitionAppear={true}
-			        transitionAppearTimeout={1200}
+			        transitionAppearTimeout={900}
 			        transitionEnterTimeout={3000}
 			        transitionLeaveTimeout={3000}
-			    >
+			        className="transition-group-wrapper"
+				>
 		      		<Project project={data} />
-		      	</CSSTransitionGroup>
 
-		      <div className="main-background">
-		      		<div ref={ (div) => { this.projectBackgroundColor = div; } } style={styles} className="background-piece background-piece-right-color"></div>
-              		<div ref={ (div) => { this.projectBackgroundMain = div; } } className="background-piece background-piece-right-main"></div>
-		      </div>
+		      		<ProjectList projects={this.props.content.projects} current={data[0]} runProjectTransition={this.runProjectTransition} />
+		      	</CSSTransitionGroup>
+		      	<div className="main-background">
+	      			<div ref={ (div) => { this.projectBackgroundColor = div; } } style={styles} className="background-piece background-piece-right-color"></div>
+          			<div ref={ (div) => { this.projectBackgroundMain = div; } } className="background-piece background-piece-right-main"></div>
+	      		</div>
 		    </main>
-		 </div>
+		    </div>
+		    <div className="main-background mobile">
+	      		<div ref={ (div) => { this.projectBackgroundColorMobile = div; } } style={styles} className="background-piece background-piece-right-color"></div>
+          		<div ref={ (div) => { this.projectBackgroundMainMobile = div; } } className="background-piece background-piece-right-main"></div>
+	      	</div>
+	      	</div>
 		);
 	}
 }

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import CardContainer from './CardContainer';
 import VisibilitySensor from 'react-visibility-sensor';
 import { TimelineMax } from 'gsap';
-import { CSSTransitionGroup } from 'react-transition-group';
 import animation from '../actions/animations';
-import * as targets from '../lib/animation-targets';
+
+import Contact from './Contact';
 
 function AboutSectionHead(props) {
     return (
@@ -18,7 +17,7 @@ function AboutSectionHead(props) {
 
 function AboutSubSectionSkills(props){
 	return (
-		<div className="sub-section sub-about">
+		<div className="sub-section flex-row sub-about">
 		    <h3 className="flex-col flex-forty sub-section-title">What I Do</h3>
 		    <div className="flex-col flex-sixty sub-section-list">
 		    	<span className="sub-section-list-item skills-item">React / Redux</span>
@@ -31,7 +30,7 @@ function AboutSubSectionSkills(props){
 
 function AboutSubSectionOtherTech(props){
 	return (
-		<div className="sub-section sub-tech">
+		<div className="sub-section flex-row sub-tech">
 		    <h3 className="flex-col flex-forty sub-section-title">Other Technologies</h3>
 		    <div className="flex-col flex-sixty sub-section-list">
 		    	<span className="sub-section-list-item tech-item">Greensock.js</span>
@@ -46,9 +45,9 @@ class About extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			visibilitySectionActive: true,
-			visibilitySubSectionSkillsActive: true,
-			visibilitySubSectionTechActive: true,
+			visibilitySectionActive: false,
+			visibilitySubSectionSkillsActive: false,
+			visibilitySubSectionTechActive: false,
 		}
 		this.onChangeSection = this.onChangeSection.bind(this);
 		this.onChangeSubSectionSkills = this.onChangeSubSectionSkills.bind(this);
@@ -57,6 +56,14 @@ class About extends Component {
 
 	componentWillMount(){
 		this.props.getAnimationTarget([this.aboutContentIntroOne, this.aboutContentIntroTwo ]);
+	}
+
+	componentDidMount(){
+		this.setState({
+			visibilitySectionActive: true,
+			visibilitySubSectionSkillsActive: true,
+			visibilitySubSectionTechActive: true,
+		})
 	}
 
 	onChangeSection(isVisible) {
@@ -89,28 +96,32 @@ class About extends Component {
   	}
 
 	render() {
-		console.log('about state', this.state);
 
 		return (
 		    <div className="about view">
 			    <section className="standard-section-padding about-section">
-			        <div className="container slimmer-container about-container">
-			           <p ref={ (p) => { this.aboutContentIntroOne = p;} } className="about-intro-paragraph">I'm a Atlanta based web developer specializing in React / Redux development. I currently work at Vert Digital and love to code stuff.</p>
-			           <p ref={ (p) => { this.aboutContentIntroTwo = p;} } className="about-intro-paragraph">I love to create interactive solutions with a strong emphasis on clean, simple, and usable design.</p>
+			    	<div className="flex-row full-height bottom-xs">
+				        <div className="container slimmer-container about-container">
+				           <p ref={ (p) => { this.aboutContentIntroOne = p;} } className="about-intro-paragraph">I'm a Atlanta based web developer specializing in React / Redux development. I currently work at Vert Digital and love to code stuff.</p>
+				           <p ref={ (p) => { this.aboutContentIntroTwo = p;} } className="about-intro-paragraph">I love to create interactive solutions with a strong emphasis on clean, simple, and usable design.</p>
 
-		           		<VisibilitySensor onChange={this.onChangeSection} active={this.state.visibilitySectionActive}>
-						   	<AboutSectionHead />
-						</VisibilitySensor>
+			           		<VisibilitySensor onChange={this.onChangeSection} active={this.state.visibilitySectionActive}>
+							   	<AboutSectionHead />
+							</VisibilitySensor>
 
-						<VisibilitySensor onChange={this.onChangeSubSectionSkills} active={this.state.visibilitySubSectionSkillsActive}>
-						   	<AboutSubSectionSkills />
-						</VisibilitySensor>
+							<VisibilitySensor onChange={this.onChangeSubSectionSkills} active={this.state.visibilitySubSectionSkillsActive}>
+							   	<AboutSubSectionSkills />
+							</VisibilitySensor>
 
-						<VisibilitySensor onChange={this.onChangeSubSectionTech} active={this.state.visibilitySubSectionTechActive}>
-						   	<AboutSubSectionOtherTech />
-						</VisibilitySensor>
-			        </div>
+							<VisibilitySensor onChange={this.onChangeSubSectionTech} active={this.state.visibilitySubSectionTechActive}>
+							   	<AboutSubSectionOtherTech />
+							</VisibilitySensor>
+
+				        </div>
+				    </div>
 			    </section>
+
+			    <Contact />
 		  	</div>
 		);
 	}

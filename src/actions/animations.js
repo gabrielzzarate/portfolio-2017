@@ -27,13 +27,10 @@ function cbContent(){
 	console.log('content animation complete');
 }
 
-function cbSub(){
-	console.log('sub ANIMATE');
-}
 
 const timelineAboutSection = new TimelineMax({ onComplete: cbContent });
-const timelineSubSectionSkills = new TimelineMax({ onComplete: cbSub });
-const timelineSubSectionTech = new TimelineMax({ onComplete: cbSub });
+//const timelineSubSectionSkills = new TimelineMax({ onComplete: cbSub });
+//const timelineSubSectionTech = new TimelineMax({ onComplete: cbSub });
 
 export default {
 	transitionSidebar(colorPanel, mainPanel){
@@ -61,10 +58,10 @@ export default {
 		return timeline
 			.to(colorPanel, 1.2, {
 				scaleX: 1,
-				ease: Expo.easeInOut }, .3)
+				ease: Expo.easeInOut }, .0)
 			.to(mainPanel, 1.2, {
 				scaleX: 1,
-				ease: Expo.easeInOut }, .4)
+				ease: Expo.easeInOut }, .1)
 			.staggerFromTo(intro, 2, {
 				autoAlpha: 0,
 				y: 30

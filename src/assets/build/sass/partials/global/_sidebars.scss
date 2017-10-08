@@ -1,14 +1,55 @@
 
 .navigation-sidebar {
 	border-right: 1px solid $ltgray;
+	//height: 100vh;
 
+	.sidebar-inner {
+		height: 100vh;
+
+		@include tablet-small {
+			border-right: 0;
+			height: 250px;
+		}
+	}
+	
 	@include tablet-small {
 		border-right: 0;
+		.flex-row {
+			justify-content: left;
+		}
+	}
+
+	&.isMobile.sweetwater {
+		background: $sweetwater;
+		color: #fff;
+		box-shadow: 0 2px 0 rgba(0,0,0,0.10);
+	}
+
+	&.isMobile.sponsor {
+		background: $sponsor;
+		color: #fff;
+		box-shadow: 0 2px 0 rgba(0,0,0,0.10);
+	}
+
+	&.isMobile.analyze {
+		background: $analyze;
+		color: #fff;
+		box-shadow: 0 2px 0 rgba(0,0,0,0.10);
+	}
+	
+	.name {
+		@include tablet-small {
+			padding: 120px 0 0 25px;
+		}
 	}
 
 	h2 {
 		margin-bottom: 0;
 		@include font-size(28px);
+
+		@include tablet-small {
+			@include font-size(35px);
+		}
 	}
 }
 
@@ -18,4 +59,8 @@
     letter-spacing: .5px;
     text-transform: uppercase;
     color: $ltgray;
+
+    @include mobile {
+    	@include font-size(17px);
+    }
 }
