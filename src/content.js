@@ -1,4 +1,4 @@
-import placeholderCardImage from './assets/production/images/project-thumbnail.jpg';
+//import placeholderCardImage from './assets/production/images/project-thumbnail.jpg';
 import sponsorCardImage from './assets/production/images/sportsengine-sponsor-image_resized.jpg';
 import sweetwaterVideo from './assets/production/video/swb-homepage-video.mp4';
 import analyzeCardImage from './assets/production/images/project-thumbnail_analyze.png';

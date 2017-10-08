@@ -4,6 +4,11 @@ header {
 	left: 45px;
 	top: 45px;
 
+	@include tablet-small {
+		left: 30px;
+		top: 30px;
+	}
+
 	a {
 		color: $black;
 		text-transform: uppercase;

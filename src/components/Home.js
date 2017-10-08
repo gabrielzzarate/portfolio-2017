@@ -9,8 +9,6 @@ import { CSSTransitionGroup } from 'react-transition-group';
 class Home extends Component {
 
   	render() {
-	    const { animate } = this.props;
-
 	    return (
 	      <div className="home view">
 

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import CardContainer from './CardContainer';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../actions';
@@ -31,7 +29,7 @@ class HomeContainer extends Component {
 		const animate = this.props.animations;
 
 		return (
-		    <div className="flex-row full-height">
+		    <div className="flex-row full-height home-container">
 		    	<Sidebar project={null} heading={'home'} animate={this.props.animations.bool} appLocation={this.props.match.path} />
 		    	<main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content">
 			      <CSSTransitionGroup

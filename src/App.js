@@ -6,20 +6,34 @@ import { ActionCreators } from './actions';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 // child components
-import Sidebar from './components/Sidebar';
 import HomeContainer from './components/HomeContainer';
 import AboutContainer from './components/AboutContainer';
 import ProjectContainer from './components/ProjectContainer';
+import ScrollToTop from './components/ScrollToTop';
+
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+if ( x < 766 ){
+  document.body.classList.add("isMobile");
+}
+
 
 
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router >
+        <ScrollToTop>
         <div className="flex-row full-height">
-            <Route exact path="/" component={HomeContainer} />
-            <Route path="/about" component={AboutContainer} />
-            <Route path="/project/:projectURL" component={ProjectContainer}/>
+              <Route exact path="/" component={HomeContainer} />
+              <Route path="/about" component={AboutContainer} />
+              <Route path="/project/:projectURL" component={ProjectContainer}/>
+          
 
 
           <header>
@@ -39,6 +53,7 @@ class App extends Component {
             </CSSTransitionGroup>
           </header>
         </div>
+        </ScrollToTop>
       </Router>
     );
   }

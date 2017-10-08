@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import animation from '../actions/animations';
-import spanifyTitle from '../lib/helper-functions';
+
 
 class Sidebar extends Component {
 	constructor(props){
@@ -12,7 +12,7 @@ class Sidebar extends Component {
 	componentDidMount(){
 		if(this.props.animate === true ) {
 			this.runSidebarTransition();
-		} else if (this.props.appLocation === "/about" || this.props.applocation === "/project/:projectURL") {
+		} else if (this.props.appLocation === "/about" || this.props.appLocation === "/project/:projectURL") {
 			this.runSidebarTransition();
 		}
 	}
@@ -22,9 +22,12 @@ class Sidebar extends Component {
 	}
   	render() {
   		const { project } = this.props;
+  		const isMobile = document.body.classList.contains('isMobile');
+  		//console.log(this.props.app)
+  		
 	    return (
-	      	<div className="flex-col flex-one-fourth flex-vertical-one-fourth flex-tablet-full navigation-sidebar">
-				   <div className="flex-row full-height middle-xs center-flex">
+	      	<div className={ (isMobile === false ? null : 'isMobile') + " flex-col flex-one-fourth flex-vertical-one-fourth flex-tablet-full navigation-sidebar " + ( project !== null ? project[0].projectURL : '') }>
+			   <div className="flex-row full-height middle-xs center-flex sidebar-inner">
 					<CSSTransitionGroup
 	                  transitionName="heading"
 	                  transitionAppear={true}
@@ -32,15 +35,14 @@ class Sidebar extends Component {
 	                  transitionEnterTimeout={1000}
 	                  transitionLeaveTimeout={3000}
 	                >
-	                <Heading heading={this.props.heading} projectName={project !== null ? project[0].projectName : null}  />
-
+	                	<Heading heading={this.props.heading} projectName={project !== null ? project[0].projectName : null}  />
 	                </CSSTransitionGroup>
-				   </div>
+			   </div>
 
 	        	<div className="sidebar-background">
-	          	 <div ref={ (div) => { this.sidebarBackgroundColor = div; } } style={ project !== null ? { backgroundColor: project[0].projectColor } : { backgroundColor: '#e8eaef' } } className="background-piece background-piece-left-color"></div>
-	             <div ref={ (div) => { this.sidebarBackgroundMain = div; } } className="background-piece background-piece-left-main"></div>
-	          </div>
+	          	 	<div ref={ (div) => { this.sidebarBackgroundColor = div; } } style={ project !== null ? { backgroundColor: project[0].projectColor } : { backgroundColor: '#e8eaef' } } className="background-piece background-piece-left-color"></div>
+	           		<div ref={ (div) => { this.sidebarBackgroundMain = div; } } className="background-piece background-piece-left-main"></div>
+	          	</div>
 			</div>
 	    );
   	}
@@ -50,7 +52,6 @@ export default Sidebar;
 
 function Heading(props){
 	const heading = props.heading;
-	//const projectName = spanifyTitle(props.projectName);
 	const projectName = props.projectName;
 
 	if(heading === 'home'){

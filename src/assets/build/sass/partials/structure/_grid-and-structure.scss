@@ -13,8 +13,8 @@ $col-padding: 20px;
 
 $section-tb-padding: 60px;
 $section-rl-padding: 48px;
-$section-tb-padding-mobile: 64px;
-$section-rl-padding-mobile: 24px;
+$section-tb-padding-mobile: 20px;
+$section-rl-padding-mobile: 20px;
 $col-initial-padding: 24px;
 $col-middle-padding: 12px;
 $max-width-desktop-lg: 1280px;
@@ -46,9 +46,6 @@ body{
  height: 100vh;
 }
 
-#root {
-	height: 100vh;
-}
 
 // google tracking iframe display none
 iframe[name=google_conversion_frame] {
@@ -61,7 +58,7 @@ header, section, footer, div {
 	&.standard-section-padding {
 		padding: $section-tb-padding $section-rl-padding;
 
-		@include mobile {
+		@include tablet-small {
 			padding: $section-tb-padding-mobile $section-rl-padding-mobile;
 		}
 	}
@@ -69,7 +66,7 @@ header, section, footer, div {
 	&.section-padding-tb {
 		padding: $section-tb-padding 0;
 
-		@include mobile {
+		@include tablet-small {
 			padding: $section-tb-padding-mobile 0;
 		}
 	}
@@ -319,7 +316,6 @@ header, section, footer, div {
 }
 
 
-
 .flex-col {
 	box-sizing: border-box;
 	-webkit-box-flex: 0;
@@ -443,6 +439,12 @@ header, section, footer, div {
 			flex-basis: 40%;
 			max-width: 40%;
 		}
+
+		@include tablet-small {
+			-ms-flex-preferred-size: 100%;
+			flex-basis: 100%;
+			max-width: 100%;
+		}
 	}
 
 	&.flex-sixty {
@@ -450,6 +452,12 @@ header, section, footer, div {
 			-ms-flex-preferred-size: 60%;
 			flex-basis: 60%;
 			max-width: 60%;
+		}
+
+		@include tablet-small {
+			-ms-flex-preferred-size: 100%;
+			flex-basis: 100%;
+			max-width: 100%;
 		}
 	}
 
@@ -522,6 +530,15 @@ header, section, footer, div {
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end;
+}
+
+.bottom-xs-desktop {
+	@include landscape {
+		 -webkit-box-align: end;
+  		-ms-flex-align: end;
+ 		 align-items: flex-end;
+	}
+
 }
 
 .center-flex {

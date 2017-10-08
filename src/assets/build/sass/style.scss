@@ -12,23 +12,19 @@
 @import "partials/structure/mixins";
 @import "partials/structure/animations";
 @import "partials/structure/typography";
-@import "partials/structure/icons";
 @import "partials/structure/grid-and-structure";
 @import "partials/structure/form-styles";
 
 // 3. Global Elements
 @import "partials/global/header";
-@import "partials/global/footer";
 @import "partials/global/sidebars";
 @import "partials/global/top-level-page";
-@import "partials/global/secondary-page";
-@import "partials/global/modal-window";
-
 
 // 4. Components
 @import "partials/components/photo-card";
 @import "partials/components/about";
 @import "partials/components/project";
+@import "partials/components/contact";
 
 
 
