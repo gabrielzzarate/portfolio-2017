@@ -9,7 +9,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import HomeContainer from './components/HomeContainer';
 import AboutContainer from './components/AboutContainer';
 import ProjectContainer from './components/ProjectContainer';
-import ScrollToTop from './components/ScrollToTop';
+//import ScrollToTop from './components/ScrollToTop';
 
 var w = window,
     d = document,
@@ -27,9 +27,9 @@ if ( x < 766 ){
 class App extends Component {
   render() {
     return (
-      <Router >
-        <ScrollToTop>
+      <Router>
         <div className="flex-row full-height">
+
               <Route exact path="/" component={HomeContainer} />
               <Route path="/about" component={AboutContainer} />
               <Route path="/project/:projectURL" component={ProjectContainer}/>
@@ -53,7 +53,6 @@ class App extends Component {
             </CSSTransitionGroup>
           </header>
         </div>
-        </ScrollToTop>
       </Router>
     );
   }

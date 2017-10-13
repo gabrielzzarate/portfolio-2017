@@ -5,7 +5,7 @@ export default function ProjectList(props){
 
 	const projectLinks = props.projects.map((project, i) => {
 		if(project.projectURL !== props.current.projectURL) {
-			return <h2 key={i}><Link onClick={props.runProjectTransition} to={`/project/${project.projectURL}`}>{project.projectName}</Link></h2>
+			return <h2 key={i}><Link onClick={() => props.runProjectTransition()} to={`/project/${project.projectURL}`}>{project.projectName}</Link></h2>
 		}
 	});
 

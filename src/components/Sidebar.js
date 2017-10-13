@@ -23,10 +23,20 @@ class Sidebar extends Component {
   	render() {
   		const { project } = this.props;
   		const isMobile = document.body.classList.contains('isMobile');
+
+  		const sidebarFadeInMobile = isMobile == true && this.props.appLocation === "/project/:projectURL" ? true : false;
   		//console.log(this.props.app)
   		
 	    return (
-	      	<div className={ (isMobile === false ? null : 'isMobile') + " flex-col flex-one-fourth flex-vertical-one-fourth flex-tablet-full navigation-sidebar " + ( project !== null ? project[0].projectURL : '') }>
+	    	<CSSTransitionGroup
+	            transitionName="change-view"
+	            transitionAppear={sidebarFadeInMobile}
+	            transitionAppearTimeout={1000}
+	            transitionEnter={false}
+	            transitionLeave={false}
+	            className="transition-group-block flex-col flex-one-fourth flex-vertical-one-fourth flex-tablet-full"
+	        >
+	      	<div className={ (isMobile === false ? null : 'isMobile') + " navigation-sidebar " + ( project !== null ? project[0].projectURL : '') }>
 			   <div className="flex-row full-height middle-xs center-flex sidebar-inner">
 					<CSSTransitionGroup
 	                  transitionName="heading"
@@ -44,6 +54,7 @@ class Sidebar extends Component {
 	           		<div ref={ (div) => { this.sidebarBackgroundMain = div; } } className="background-piece background-piece-left-main"></div>
 	          	</div>
 			</div>
+			</CSSTransitionGroup>
 	    );
   	}
 }
