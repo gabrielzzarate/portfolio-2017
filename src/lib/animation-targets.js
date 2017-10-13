@@ -3,6 +3,8 @@
 export const cardOne = document.getElementsByClassName('1-card');
 export const cardTwo = document.getElementsByClassName('2-card');
 export const cardThree = document.getElementsByClassName('3-card');
+export const cardFour = document.getElementsByClassName('4-card');
+
 // main section
 export const target = document.querySelector('about-intro-paragraph');
 export const heading = document.getElementsByClassName('section-head');

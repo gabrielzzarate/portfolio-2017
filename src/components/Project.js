@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import linkIcon from './link.svg';
 
 class Project extends Component {
 
@@ -10,19 +10,25 @@ class Project extends Component {
 	return (
 	    <section className="standard-section-padding project-section">
 
-			<div className="flex-row full-height bottom-xs-desktop">
+			<div className="project-row flex-row bottom-xs-desktop">
 
 				<div className="flex-col flex-two-thirds project-single-details">
-					<div className="project-large-image-container">
-						<img src={data[0].projectDesktop} alt={data[0].projectName} />
-					</div>
+					<a href={ data[0].projectLink} target="_blank" className="project-large-image-container">
+						<div className="image-inner">
+							<div className="project-desktop-image-wrapper">
+								<img className="desktop-image" src={data[0].projectDesktop} alt={data[0].projectName} />
+
+								<div className="link-to-project">
+									<img className="icon-link" src={linkIcon} alt="Link Icon" />
+								</div>
+							</div>
+						</div>
+					</a>
 
 	    			<div className="project-details">
 	    				<h4>{data[0].projectDescription}</h4>
-	    				<p><span>Agency:</span> {data[0].projectAgency}</p>
-	    				<p><span>Role:</span> {data[0].projectRole}</p>
-	    				<p><span>Team:</span> {data[0].projectTeam}</p>
-	    				<p><span>Date:</span> {data[0].projectDate}</p>
+	    				<p><span>Technologies Used:</span> {data[0].technologyUsed}</p>
+	    				<p><span>Live:</span> <a target="_blank" href={data[0].projectLink}>See Project</a></p>
 	    			</div>
 	    		</div>
 			</div>

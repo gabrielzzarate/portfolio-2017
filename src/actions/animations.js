@@ -34,8 +34,8 @@ const timelineAboutSection = new TimelineMax({ onComplete: cbContent });
 
 export default {
 	transitionSidebar(colorPanel, mainPanel){
-		var timeline = new TimelineMax({ onComplete: cb });
-		return timeline
+		var timelineSidebar = new TimelineMax({ onComplete: cb });
+		return timelineSidebar
 			.to(colorPanel, 1.2, {
 				scaleX: 1,
 				ease: Expo.easeInOut }, 0)
@@ -44,8 +44,8 @@ export default {
 				ease: Expo.easeInOut }, .1);
 	},
 	transitionMain(colorPanel, mainPanel){
-		var timeline = new TimelineMax({ onComplete: cb });
-		return timeline
+		var timelineMain = new TimelineMax({ onComplete: cb });
+		return timelineMain
 			.to(colorPanel, 1.2, {
 				scaleX: 1,
 				ease: Expo.easeInOut }, 0)
@@ -168,6 +168,14 @@ export default {
 				y: 0,
 				ease: Expo.easeOut
 			}, 0, 2)
+			.staggerFromTo(targets.cardFour, 2, {
+				autoAlpha: 0,
+				y: 40
+			}, {
+				autoAlpha: 1,
+				y: 0,
+				ease: Expo.easeOut
+			}, 0, 2.2)
 			.staggerFromTo(targets.heading, 2, {
 				autoAlpha: 0,
 				y: 30

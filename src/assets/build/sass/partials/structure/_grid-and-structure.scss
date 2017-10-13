@@ -43,7 +43,7 @@ body, html {
 }
 
 body{
- height: 100vh;
+ //height: 100vh;
 }
 
 
@@ -536,7 +536,7 @@ header, section, footer, div {
 	@include landscape {
 		 -webkit-box-align: end;
   		-ms-flex-align: end;
- 		 align-items: flex-end;
+ 		align-items: flex-end;
 	}
 
 }

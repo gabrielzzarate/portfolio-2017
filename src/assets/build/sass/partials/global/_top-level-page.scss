@@ -1,20 +1,79 @@
 
 
 .view {
-	min-height: 100vh;
+	//min-height: 100vh;
 }
 
 body {
 	min-height: 100vh;
-	overflow-y: auto;
-	overflow-x: hidden;
+	 overflow-y: auto;
+	 overflow-x: hidden;
+	height: 100%;
 
 	@include mobile {
-		overflow-y: scroll;
+		 overflow-y: scroll;
+		 -webkit-overflow-scrolling: touch;
+		 overflow-x: hidden;
 	}
 }
+
+// .site-content {
+// 	//min-height: 100vh;
+// 	overflow-y: auto;
+// 	overflow-x: hidden;
+// 	//height: 100%;
+
+// 	@include mobile {
+// 		overflow-y: scroll;
+// 		-webkit-overflow-scrolling: touch;
+// 		overflow-x: hidden;
+// 	}
+// }
 
 .home {
 	z-index: 1;
 }
 
+[data-reactroot] {
+	// height: 100% !important;
+	// min-height: 100vh;
+	// overflow-x: hidden;
+	// overflow-y: auto;
+
+	// @include mobile {
+	// 	overflow-y: scroll;
+	// 	overflow-x: hidden;
+	// }
+}
+
+// #root {
+// 	overflow-y: auto;
+
+
+// 	@include mobile {
+// 		overflow-y: scroll;
+// 		overflow-x: hidden;
+// 	}
+// }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  line-height: 1; 
+}
+
+body {
+	text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    position: relative;
+    top: 0;
+    left: 0;
+}
+       

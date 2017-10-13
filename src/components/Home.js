@@ -25,7 +25,7 @@ class Home extends Component {
 	                		<h2 className="section-title">Featured Work</h2>
 				    		<span className="section-line"></span>
 	                	</div>
-	                	<CardContainer playHomeAnimation={this.props.playHomeAnimation} projects={this.props.content.projects} />
+	                	<CardContainer playHomeAnimation={this.props.playHomeAnimation} projects={this.props.content.projects} projectLinks={this.props.content.projectLinks} />
 	                </CSSTransitionGroup>
 	            </div>
 	        </section>

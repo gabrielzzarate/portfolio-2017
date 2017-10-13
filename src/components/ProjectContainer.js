@@ -24,12 +24,11 @@ class ProjectContainer extends Component {
 	}
 
 	componentDidMount(){
+		document.body.scrollTo(0,0);
 		this.runProjectTransition();
 	}
 
 	runProjectTransition(){
-		//const timelineProject = new TimelineMax({ onComplete: cb });
-
 		if( document.body.classList.contains('isMobile') ){
 			animation.transitionMain(this.projectBackgroundColorMobile, this.projectBackgroundMainMobile);
 			animation.animateProjectEnter();
@@ -37,6 +36,7 @@ class ProjectContainer extends Component {
 			animation.transitionMain(this.projectBackgroundColor, this.projectBackgroundMain);
 			animation.animateProjectEnter();
 		}
+		
 	}
 
 	render() {

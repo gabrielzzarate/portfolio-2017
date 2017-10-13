@@ -102,8 +102,8 @@ class About extends Component {
 			    <section className="standard-section-padding about-section">
 			    	<div className="flex-row full-height bottom-xs">
 				        <div className="container slimmer-container about-container">
-				           <p ref={ (p) => { this.aboutContentIntroOne = p;} } className="about-intro-paragraph">I'm a Atlanta based web developer specializing in React / Redux development. I currently work at Vert Digital and love to code stuff.</p>
-				           <p ref={ (p) => { this.aboutContentIntroTwo = p;} } className="about-intro-paragraph">I love to create interactive solutions with a strong emphasis on clean, simple, and usable design.</p>
+				           <p ref={ (p) => { this.aboutContentIntroOne = p;} } className="about-intro-paragraph">I'm a Atlanta based web developer specializing in React development. I'm a fan of premier league soccer, my charcoil grill, and making my wife Caitlyn laugh.</p>
+				           <p ref={ (p) => { this.aboutContentIntroTwo = p;} } className="about-intro-paragraph">I thrive working on challenging problems in a collaborative environment with great people. I'm a life-long learner who loves my work because I get to turn problems into solutions in creative ways each day.  </p>
 
 			           		<VisibilitySensor onChange={this.onChangeSection} active={this.state.visibilitySectionActive}>
 							   	<AboutSectionHead />
