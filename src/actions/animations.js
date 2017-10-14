@@ -20,11 +20,11 @@ export function getAnimationTarget(target){
 
 // timeline onComplete callbacks
 function cb(){
-	console.log('transition complete');
+	//console.log('transition complete');
 }
 
 function cbContent(){
-	console.log('content animation complete');
+	//console.log('content animation complete');
 }
 
 

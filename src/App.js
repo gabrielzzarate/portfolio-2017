@@ -20,24 +20,24 @@ var w = window,
 
 if ( x < 766 ){
   document.body.classList.add("isMobile");
+} else {
+  document.body.classList.add("isDesktop");
 }
 
 
 class App extends Component {
+
   componentDidMount(){
-      var media = document.getElementById("card-video");
-      var playPromise = media.play();
-      if (playPromise !== null){
-          playPromise.catch(function() {
-              media.play();
-          });
-      }
+    const isDesktop = document.body.classList.contains('isDesktop');
+    if ( isDesktop ) {
+      document.getElementById('card-video').setAttribute('autoplay', 'true');
+    }
   }
 
   render() {
     return (
       <Router>
-        <div className="flex-row full-height">
+        <div id="top" className="flex-row full-height">
 
               <Route exact path="/" component={HomeContainer} />
               <Route path="/about" component={AboutContainer} />
