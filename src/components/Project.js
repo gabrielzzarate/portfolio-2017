@@ -10,19 +10,17 @@ class Project extends Component {
 	return (
 	    <section className="standard-section-padding project-section">
 
-			<div className="project-row flex-row bottom-xs-desktop">
+			<div className="project-row">
 
 				<div className="flex-col flex-two-thirds project-single-details">
 					<a href={ data[0].projectLink} target="_blank" className="project-large-image-container">
-						<div className="image-inner">
-							<div className="project-desktop-image-wrapper">
-								<img className="desktop-image" src={data[0].projectDesktop} alt={data[0].projectName} />
+						<img className="desktop-image" src={data[0].projectDesktop} alt={data[0].projectName} />
 
-								<div className="link-to-project">
-									<img className="icon-link" src={linkIcon} alt="Link Icon" />
-								</div>
-							</div>
+						<div className="flex-row full-height middle-xs link-to-project">
+							<img className="icon-link" src={linkIcon} alt="Link Icon" />
 						</div>
+					
+						
 					</a>
 
 	    			<div className="project-details">

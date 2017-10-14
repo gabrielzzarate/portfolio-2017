@@ -11,11 +11,6 @@ import ProjectList from './ProjectList';
 
 import { CSSTransitionGroup } from 'react-transition-group';
 
-
-function cb(){
-	console.log('transition complete');
-}
-
 class ProjectContainer extends Component {
 	constructor(props){
 		super(props);
