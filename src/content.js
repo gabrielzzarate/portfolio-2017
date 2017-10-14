@@ -1,7 +1,8 @@
 import React from 'react';
 //import placeholderCardImage from './assets/production/images/project-thumbnail.jpg';
-import sponsorCardImage from './assets/production/images/sportsengine-sponsor-image_resized.jpg';
+import sponsorCardImage from './assets/production/images/sportsengine-sponsor-image_resized.png';
 import sweetwaterVideo from './assets/production/video/swb-homepage-video.mp4';
+import sweetwaterCardImage from './assets/production/images/sw-static-mobile.png';
 import analyzeCardImage from './assets/production/images/project-thumbnail_analyze.png';
 import browserSweetWater from './assets/production/images/sweetwater-desktop.png';
 import browserSponsor from './assets/production/images/sponsor-desktop.png';
@@ -20,8 +21,8 @@ export const projects = [
 		projectURL: "sweetwater",
 		projectCategory: "Web Development",
 		projectDescription: "A fully responsive, interactive branded web project for SweetWater Brewery. The site redesign replaced the Brewery's outdated site and better captured its brand voice.",
-		cardImage: null,
 		cardVideo: sweetwaterVideo,
+		cardImage: sweetwaterCardImage,
 		projectColor: '#128879',
 		projectDesktop: browserSweetWater,
 		projectLink: 'http://sweetwaterbrew.com/',

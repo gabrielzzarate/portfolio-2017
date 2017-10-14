@@ -18,7 +18,19 @@ class ProjectContainer extends Component {
 	}
 
 	componentDidMount(){
-		document.body.scrollTo(0,0);
+		//document.body.scrollTo(0,0);
+		//document.getElementById('top').scrollTo(0,0);
+		//window.scrollTo(0,0);
+		document.body.scrollTop = 0;
+		document.getElementById('top').scrollIntoView();
+
+		//const top = document.getElementById('top');
+		//console.log('top', top);
+
+		if ( navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/) || document.body.classList.contains('isMobile') ) {           
+            document.getElementById('top').scrollTo(0,0);
+			window.scrollTo(0,0);
+        }
 		this.runProjectTransition();
 	}
 

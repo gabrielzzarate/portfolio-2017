@@ -34,16 +34,14 @@ body, html {
 	text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow: hidden;
-
-	&.no-scroll {
-		position: fixed;
-		width: 100%;
-	}
+    //overflow-x: hidden;
+}
+html {
+	overflow-x: hidden;
 }
 
 body{
- //height: 100vh;
+ overflow: hidden;
 }
 
 

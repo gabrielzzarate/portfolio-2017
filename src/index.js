@@ -6,7 +6,7 @@ import { createLogger } from 'redux-logger';
 //import './index.css';
 import './assets/production/css/style.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducers';
 
 const loggerMiddleware = createLogger();
@@ -30,5 +30,5 @@ const AppContainer = () => (
 );
 
 ReactDOM.render(<AppContainer />, document.getElementById('root'));
-registerServiceWorker();
+//registerServiceWorker();
 
