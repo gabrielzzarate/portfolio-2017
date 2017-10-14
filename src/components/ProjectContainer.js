@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../actions';
-import { TimelineMax } from 'gsap';
 
 import Sidebar from './Sidebar';
 import Project from './Project';
@@ -65,11 +64,11 @@ class ProjectContainer extends Component {
 				>
 		      		<Project project={data} />
 
-		      		<ProjectList projects={this.props.content.projects} current={data[0]} runProjectTransition={this.runProjectTransition} />
+		      		<ProjectList projects={this.props.content.projects} current={data[0]} runBackground={this.runBackground} runProjectTransition={this.runProjectTransition} />
 		      	</CSSTransitionGroup>
 		      	<div className="main-background">
-	      			<div ref={ (div) => { this.projectBackgroundColor = div; } } style={styles} className="background-piece background-piece-right-color"></div>
-          			<div ref={ (div) => { this.projectBackgroundMain = div; } } className="background-piece background-piece-right-main"></div>
+	      			<div ref={ (div) => { this.projectBackgroundColor = div; } } style={styles} className="project-background-color background-piece background-piece-right-color"></div>
+          			<div ref={ (div) => { this.projectBackgroundMain = div; } } className="project-background-main background-piece background-piece-right-main"></div>
 	      		</div>
 		    </main>
 		    </div>

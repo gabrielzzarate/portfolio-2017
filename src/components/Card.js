@@ -14,7 +14,7 @@ class Card extends Component {
 				className="photo-card">
 	        	<div className="photo-card-container">
 					<div className="card-image-container">
-						{ project.cardImage ? <img src={ project.cardImage } className="project-thumbnail" alt="Project Thumbnail" /> : <video autoPlay loop muted><source src={ project.cardVideo } type="video/mp4" alt="SweetWater Brewing" /></video>}
+						{ project.cardImage ? <img src={ project.cardImage } className="project-thumbnail" alt="Project Thumbnail" /> : <video id="card-video" autoPlay loop muted><source src={ project.cardVideo } type="video/mp4" alt="SweetWater Brewing" /></video>}
 					</div>
 
 					<div className="card-content-container">
