@@ -24,7 +24,7 @@ class Sidebar extends Component {
   		const { project } = this.props;
   		const isMobile = document.body.classList.contains('isMobile');
 
-  		const sidebarFadeInMobile = isMobile == true && this.props.appLocation === "/project/:projectURL" ? true : false;
+  		const sidebarFadeInMobile = isMobile === true && this.props.appLocation === "/project/:projectURL" ? true : false;
   		//console.log(this.props.app)
   		
 	    return (
