@@ -20,11 +20,17 @@ class HomeContainer extends Component {
 		if(this.props.animations.bool === true ){
 			this.runHomeTransition();
 		}
+
+	    const isDesktop = document.body.classList.contains('isDesktop');
+	    if ( isDesktop ) {
+	      document.getElementById('card-video').setAttribute('autoplay', 'true');
+	    }
 	}
 
 	runHomeTransition(){
 		animation.transitionMain(this.homeBackgroundColor, this.homeBackgroundMain);
 	}
+
 	render() {
 		const animate = this.props.animations;
 
@@ -32,22 +38,22 @@ class HomeContainer extends Component {
 		    <div className="flex-row full-height home-container">
 		    	<Sidebar project={null} heading={'home'} animate={this.props.animations.bool} appLocation={this.props.match.path} />
 		    	<main className="flex-col flex-three-fourths flex-vertical-three-fourths flex-tablet-full site-content">
-			      <CSSTransitionGroup
-			        transitionName="change-view"
-			        transitionAppear={true}
-			        transitionAppearTimeout={animate.viewAnimationDelay}
-			        transitionEnterTimeout={3000}
-			        transitionLeaveTimeout={3000}
-			      >
-		        		<Home playHomeAnimation={this.props.playHomeAnimation} animate={this.props.animations.bool} />
-		      	</CSSTransitionGroup>
+			        <CSSTransitionGroup
+			        	transitionName="change-view"
+			        	transitionAppear={true}
+			        	transitionAppearTimeout={animate.viewAnimationDelay}
+			        	transitionEnterTimeout={3000}
+			        	transitionLeaveTimeout={3000}
+			      	>
+			        	<Home playHomeAnimation={this.props.playHomeAnimation} content={this.props.content} animate={this.props.animations.bool} />
+			      	</CSSTransitionGroup>
 
-		      <div className="main-background">
-		          <div ref={ (div) => { this.homeBackgroundColor = div; } } className="background-piece background-piece-right-color"></div>
-		          <div ref={ (div) => { this.homeBackgroundMain = div; } } className="background-piece background-piece-right-main"></div>
-		      </div>
-		    </main>
-		 </div>
+			      	<div className="main-background">
+			          <div ref={ (div) => { this.homeBackgroundColor = div; } } className="background-piece background-piece-right-color"></div>
+			          <div ref={ (div) => { this.homeBackgroundMain = div; } } className="background-piece background-piece-right-main"></div>
+			      	</div>
+		    	</main>
+		 	</div>
 		);
 	}
 }
@@ -55,7 +61,6 @@ class HomeContainer extends Component {
 function mapDispatchToProps(dispatch){
   return bindActionCreators(ActionCreators, dispatch);
 }
-
 
 function mapStateToProps(state){
   return {

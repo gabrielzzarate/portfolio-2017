@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import spanifyTitle from '../lib/helper-functions';
 
 class Card extends Component {
 
@@ -18,12 +19,8 @@ class Card extends Component {
 					</div>
 
 					<div className="card-content-container">
-						<h2 className="project-title card transition-link">
-							{ projectTitle }
-						</h2>
-						<strong className="project-sub-head transition-link">
-							{ projectCategory }
-						</strong>
+						<h2 className="project-title card transition-link">{ projectTitle }</h2>
+						<strong className="project-sub-head transition-link">{ projectCategory }</strong>
 					</div>
 
 					<div className="card-overlay-container">
@@ -40,11 +37,6 @@ class Card extends Component {
 export default Card;
 
 
-function spanifyTitle(title){
-	const loopChar = title.split('').map((char, i) => {
-		return (<span key={i}>{char}</span>);
-	});
-	return loopChar;
-}
+
 
 

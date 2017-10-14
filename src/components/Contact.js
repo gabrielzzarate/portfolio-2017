@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Contact(props){
-
 	return (
 		<section className="callout-container contact">
 			<div className="flex-row full-height middle-xs">

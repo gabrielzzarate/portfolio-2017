@@ -42,7 +42,7 @@ class CardContainer extends Component {
     	<div className="flex-row">
         { projectCards }
         {projectCardLinks}
-        </div>
+      </div>
     );
   }
 }

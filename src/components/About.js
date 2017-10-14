@@ -96,7 +96,6 @@ class About extends Component {
   	}
 
 	render() {
-
 		return (
 		    <div className="about view">
 			    <section className="standard-section-padding about-section">
@@ -130,5 +129,5 @@ class About extends Component {
 export default About;
 
 function cbSub(){
-	console.log('sub ANIMATE');
+	//console.log('sub ANIMATE');
 }
