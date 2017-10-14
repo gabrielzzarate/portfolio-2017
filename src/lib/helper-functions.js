@@ -5,6 +5,15 @@ export default function spanifyTitle(title){
 	return loopChar;
 }
 
+var media = document.getElementById("card-video");
+var playPromise = media.play();
+if (playPromise !== null){
+	console.log('hello');
+    playPromise.catch(function() {
+        media.play();
+    });
+}
+
 
 var isMobile = {
 	Android: function() {

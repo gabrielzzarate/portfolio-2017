@@ -23,8 +23,17 @@ if ( x < 766 ){
 }
 
 
-
 class App extends Component {
+  componentDidMount(){
+      var media = document.getElementById("card-video");
+      var playPromise = media.play();
+      if (playPromise !== null){
+          playPromise.catch(function() {
+              media.play();
+          });
+      }
+  }
+
   render() {
     return (
       <Router>
