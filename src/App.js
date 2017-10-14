@@ -9,56 +9,27 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import HomeContainer from './components/HomeContainer';
 import AboutContainer from './components/AboutContainer';
 import ProjectContainer from './components/ProjectContainer';
-//import ScrollToTop from './components/ScrollToTop';
-
-var w = window,
-    d = document,
-    e = d.documentElement,
-    g = d.getElementsByTagName('body')[0],
-    x = w.innerWidth || e.clientWidth || g.clientWidth,
-    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-
-if ( x < 766 ){
-  document.body.classList.add("isMobile");
-} else {
-  document.body.classList.add("isDesktop");
-}
 
 
 class App extends Component {
-
-  componentDidMount(){
-    const isDesktop = document.body.classList.contains('isDesktop');
-    if ( isDesktop ) {
-      document.getElementById('card-video').setAttribute('autoplay', 'true');
-    }
-  }
-
   render() {
     return (
       <Router>
         <div id="top" className="flex-row full-height">
-
-              <Route exact path="/" component={HomeContainer} />
-              <Route path="/about" component={AboutContainer} />
-              <Route path="/project/:projectURL" component={ProjectContainer}/>
-          
-
-
+          <Route exact path="/" component={HomeContainer} />
+          <Route path="/about" component={AboutContainer} />
+          <Route path="/project/:projectURL" component={ProjectContainer}/>
+        
           <header>
             <CSSTransitionGroup
-                transitionName="navigation"
-                transitionAppear={true}
-                transitionAppearTimeout={1000}
-                transitionEnterTimeout={0}
-                transitionLeaveTimeout={0}
-              >
-              <Link onClick={ () => this.props.playHomeAnimation(true) } className="nav-link" to='/'>
-                Home
-              </Link>
-              <Link onClick={ () => this.props.playHomeAnimation(true) } className="nav-link" to='/about'>
-                About
-              </Link>
+              transitionName="navigation"
+              transitionAppear={true}
+              transitionAppearTimeout={1000}
+              transitionEnterTimeout={0}
+              transitionLeaveTimeout={0}
+            >
+              <Link onClick={ () => this.props.playHomeAnimation(true) } className="nav-link" to='/'>Home</Link>
+              <Link onClick={ () => this.props.playHomeAnimation(true) } className="nav-link" to='/about'>About</Link>
             </CSSTransitionGroup>
           </header>
         </div>
@@ -79,4 +50,19 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+// viewport helper functions 
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth;
+
+if ( x < 766 ){
+  document.body.classList.add("isMobile");
+} else {
+  document.body.classList.add("isDesktop");
+}
+
 

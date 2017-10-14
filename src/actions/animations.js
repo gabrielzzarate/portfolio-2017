@@ -1,5 +1,4 @@
 import * as types from './types';
-//import { TimelineMax, Expo } from '../lib/TweenMax.min.js';
 import { TimelineMax, Expo } from 'gsap';
 import * as targets from '../lib/animation-targets';
 
@@ -18,19 +17,7 @@ export function getAnimationTarget(target){
 	}
 }
 
-// timeline onComplete callbacks
-function cb(){
-	//console.log('transition complete');
-}
-
-function cbContent(){
-	//console.log('content animation complete');
-}
-
-
-const timelineAboutSection = new TimelineMax({ onComplete: cbContent });
-//const timelineSubSectionSkills = new TimelineMax({ onComplete: cbSub });
-//const timelineSubSectionTech = new TimelineMax({ onComplete: cbSub });
+const timelineAboutSection = new TimelineMax({ onComplete: cb });
 
 export default {
 	transitionSidebar(colorPanel, mainPanel){
@@ -191,6 +178,11 @@ export default {
 				ease: Expo.easeOut
 			}, 1.6, 2.5);
 	}
+}
+
+// timeline onComplete callbacks
+function cb(){
+	//console.log('transition complete');
 }
 
 
