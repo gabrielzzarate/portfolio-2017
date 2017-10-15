@@ -34,14 +34,26 @@
 	}
 
 	&:hover {
-		.desktop-image {
-			transform: scale(1.03);
-			opacity: .7;
-		}
+
+		@include not-mobile {
+			.desktop-image {
+				transform: scale(1.03);
+				opacity: .7;
+			}
 		
-		.link-to-project {
-			opacity: 1;
-			transform: translateY(0);
+			.link-to-project {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+
+	@include tablet-small {
+		&:active {
+			.desktop-image {
+				transform: scale(1.03);
+				opacity: .7;
+			}
 		}
 	}
 
@@ -67,6 +79,14 @@
 	   		margin: 0 auto;
 	   		transform: translateY(20px);
 	   	}
+
+	   	@include mobile {
+	   		opacity: 1;
+
+	   		img {
+	   			transform: translateY(60px);
+	   		}
+	   	}
 	}
 }
 
@@ -78,10 +98,24 @@
 	}
 
 	p {
-	    @include font-size(13px);
-	    text-transform: uppercase;
-	    letter-spacing: .4px;
+	    @include font-size(18px);
+
+	    &.detail {
+	    	@include font-size(13px);
+	    	text-transform: uppercase;
+	    	letter-spacing: .4px; 
+	    }
+
+	    a {
+	    	&:hover {
+	    		color: shade(#008cc3, 30%);
+	    	}
+	    }
 	}
+}
+
+.italic {
+	font-style: italic;
 }
 
 
