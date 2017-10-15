@@ -24,9 +24,9 @@ class Project extends Component {
 					</a>
 
 	    			<div className="project-details">
-	    				<h4>{data[0].projectDescription}</h4>
-	    				<p><span>Technologies Used:</span> {data[0].technologyUsed}</p>
-	    				<p><span>Live:</span> <a target="_blank" href={data[0].projectLink}>See Project</a></p>
+	    				<p>{data[0].projectDescription}</p>
+	    				<p className="detail"><span>Technologies Used:</span> {data[0].technologyUsed}</p>
+	    				<p className="detail"><span>Live:</span> <a target="_blank" href={data[0].projectLink}>See Project</a></p>
 	    			</div>
 	    		</div>
 			</div>

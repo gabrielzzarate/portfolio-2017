@@ -16,5 +16,5 @@ export const skillsListItem = document.getElementsByClassName('skills-item');
 export const subSectionTech = document.getElementsByClassName('sub-tech');
 export const techListItem = document.getElementsByClassName('tech-item');
 // project
-export const projectContainer = document.getElementsByClassName('project-single-details');
+export const projectContainer = document.getElementsByClassName('project-transition-target');
 

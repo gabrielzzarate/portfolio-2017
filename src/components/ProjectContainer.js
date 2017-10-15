@@ -57,7 +57,7 @@ class ProjectContainer extends Component {
 					        transitionAppearTimeout={900}
 					        transitionEnterTimeout={3000}
 					        transitionLeaveTimeout={3000}
-					        className="transition-group-wrapper"
+					        className="transition-group-wrapper project-transition-target"
 						>
 				      		<Project project={data} />
 				      		<ProjectList projects={this.props.content.projects} current={data[0]} runBackground={this.runBackground} runProjectTransition={this.runProjectTransition} />

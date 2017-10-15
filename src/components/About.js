@@ -20,9 +20,11 @@ function AboutSubSectionSkills(props){
 		<div className="sub-section flex-row sub-about">
 		    <h3 className="flex-col flex-forty sub-section-title">What I Do</h3>
 		    <div className="flex-col flex-sixty sub-section-list">
-		    	<span className="sub-section-list-item skills-item">React / Redux</span>
-		    	<span className="sub-section-list-item skills-item">SASS / Flexbox / Grid</span>
-		    	<span className="sub-section-list-item skills-item">UI/UX</span>
+		    	<span className="sub-section-list-item skills-item">Javascript ES6 </span>
+		    	<span className="sub-section-list-item skills-item">React &bull; Redux</span>
+		    	<span className="sub-section-list-item skills-item">Sass &bull; Flexbox </span>
+		    	<span className="sub-section-list-item skills-item">Responsive Development</span>
+		    	<span className="sub-section-list-item skills-item">REST APIs</span>
 		    </div>
 		</div>
 	);
@@ -35,7 +37,7 @@ function AboutSubSectionOtherTech(props){
 		    <div className="flex-col flex-sixty sub-section-list">
 		    	<span className="sub-section-list-item tech-item">Greensock.js</span>
 		    	<span className="sub-section-list-item tech-item">D3.js</span>
-		    	<span className="sub-section-list-item tech-item">UI/UX</span>
+		    	<span className="sub-section-list-item tech-item">PHP &bull; Wordpress</span>
 		    </div>
 		</div>
 	);
@@ -101,8 +103,8 @@ class About extends Component {
 			    <section className="standard-section-padding about-section">
 			    	<div className="flex-row full-height bottom-xs">
 				        <div className="container slimmer-container about-container">
-				           <p ref={ (p) => { this.aboutContentIntroOne = p;} } className="about-intro-paragraph">I'm a Atlanta based web developer specializing in React development. I'm a fan of premier league soccer, my charcoil grill, and making my wife Caitlyn laugh.</p>
-				           <p ref={ (p) => { this.aboutContentIntroTwo = p;} } className="about-intro-paragraph">I thrive working on challenging problems in a collaborative environment with great people. I'm a life-long learner who loves my work because I get to turn problems into solutions in creative ways each day.  </p>
+				           <p ref={ (p) => { this.aboutContentIntroOne = p;} } className="about-intro-paragraph">I'm a design-minded web developer specializing in React development. I enjoy working with the latest web technologies to bridge the gap between engineering and design to create beautiful interfaces and experiences.</p>
+				           <p ref={ (p) => { this.aboutContentIntroTwo = p;} } className="about-intro-paragraph">I thrive working on challenging problems in a collaborative environment with great people. I love my work because I have the opportunity to join teams that creatively turn problems into solutions everyday.  </p>
 
 			           		<VisibilitySensor onChange={this.onChangeSection} active={this.state.visibilitySectionActive}>
 							   	<AboutSectionHead />

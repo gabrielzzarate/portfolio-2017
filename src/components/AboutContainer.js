@@ -11,7 +11,6 @@ class AboutContainer extends Component {
 	constructor(props){
 		super(props);
 		this.runAboutTransition = this.runAboutTransition.bind(this);
-		this.runAboutContentAnimation = this.runAboutContentAnimation.bind(this);
 	}
 
 	componentDidMount(){
