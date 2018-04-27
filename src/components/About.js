@@ -29,7 +29,7 @@ function AboutSubSectionSkills(props) {
 					Sass &bull; CSS Grid
 				</span>
 				<span className="sub-section-list-item skills-item">
-					Node.js &bull; MongoDB
+					Express &bull; MongoDB
 				</span>
 				<span className="sub-section-list-item skills-item">React Native</span>
 			</div>
@@ -45,9 +45,7 @@ function AboutSubSectionOtherTech(props) {
 			</h3>
 			<div className="flex-col flex-sixty sub-section-list">
 				<span className="sub-section-list-item tech-item">Greensock.js</span>
-				<span className="sub-section-list-item tech-item">
-					Heroku &bull; AWS
-				</span>
+				<span className="sub-section-list-item tech-item">Gulp &bull; Git</span>
 				<span className="sub-section-list-item tech-item">
 					PHP &bull; Wordpress
 				</span>
